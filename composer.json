@@ -21,5 +21,13 @@
   "license": "MIT",
   "support": {
     "issues": "https://github.com/ColorlibHQ/AdminLTE/issues"
+  },
+  "require": {
+    "illuminate/database": "^6.13"
+  },
+  "autoload": {
+    "classmap": [
+      "classes"
+    ]
   }
 }
