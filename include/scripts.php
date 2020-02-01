@@ -81,13 +81,14 @@
       header    : {
         left  : 'prev,next today',
         center: 'title',
-        right : 'dayGridMonth,timeGridWeek,timeGridDay'
+        right : 'month'
       },
       //Random default events
       events    : [
         {
           title          : 'All Day Event',
           start          : new Date(y, m, 1),
+          end            : new Date(y, m, 4),
           backgroundColor: '#f56954', //red
           borderColor    : '#f56954', //red
           allDay         : true
@@ -95,7 +96,7 @@
         {
           title          : 'Long Event',
           start          : new Date(y, m, d - 5),
-          end            : new Date(y, m, d - 2),
+          end            : new Date(y, m, d - 1),
           backgroundColor: '#f39c12', //yellow
           borderColor    : '#f39c12' //yellow
         },

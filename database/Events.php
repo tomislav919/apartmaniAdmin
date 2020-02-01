@@ -7,10 +7,13 @@ Capsule::schema()->create('events', function ($table) {
   $table->foreign('calendar_id')->references('id')->on('calendars');
   $table->unsignedBigInteger('apartment_id');
   $table->foreign('apartment_id')->references('id')->on('apartments');
-  $table->string('name');
-  $table->string('comment');
-  $table->date('startDate');
-  $table->date('endDate');
+  $table->string('title');
+  $table->string('comment')->nullable();
+  $table->string('start');
+  $table->string('end');
+  $table->string('allDay');
+  $table->string('backgroundColor');
+  $table->string('borderColor');
   $table->rememberToken();
   $table->timestamps();
 });

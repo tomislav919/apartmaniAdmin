@@ -39,9 +39,9 @@
                     <div class="external-event bg-primary">Work on UI design</div>
                     <div class="external-event bg-danger">Sleep tight</div>
                     <div class="external-event bg-danger">New ev</div>
-                    <div class="checkbox">
+                    <div class="checkbox" hidden>
                       <label for="drop-remove">
-                        <input type="checkbox" id="drop-remove">
+                        <input type="checkbox" id="drop-remove" checked>
   remove after drop
 </label>
                     </div>

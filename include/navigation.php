@@ -22,7 +22,7 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
-          <a href="calendar.html" class="nav-link">
+          <a href="apartment1.php" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Apartman 1
@@ -31,7 +31,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="calendar.html" class="nav-link">
+          <a href="apartment2.php" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Apartman 2
@@ -40,7 +40,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="calendar.html" class="nav-link">
+          <a href="apartment3.php" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Apartman 3
@@ -49,7 +49,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="calendar.html" class="nav-link">
+          <a href="apartment4.php" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Apartman 4
@@ -58,7 +58,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="calendar.html" class="nav-link">
+          <a href="apartment5.php" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Apartman 5
@@ -67,10 +67,19 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="calendar.html" class="nav-link">
+          <a href="apartment6.php" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Apartman 6
+              <span class="badge badge-info right"></span>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="index.php" class="nav-link">
+            <i class="nav-icon far fa-calendar-alt"></i>
+            <p>
+              Svi apartmani
               <span class="badge badge-info right"></span>
             </p>
           </a>
