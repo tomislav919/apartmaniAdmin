@@ -22,14 +22,11 @@
     <?php
 
     require "bootstrap.php";
-    $events = Event::select('title', 'start', 'end', 'allDay', 'backgroundColor', 'borderColor')->get();
+    $events = Event::select('title', 'start', 'end', 'backgroundColor', 'borderColor')->get();
 
-    $events = json_encode($events);
+    $events = str_replace('"', '', $events);
 
-    echo $events;
-
-
-
+echo $_SERVER['DOCUMENT_ROOT'];
 
     ?>
     <!-- Main content -->

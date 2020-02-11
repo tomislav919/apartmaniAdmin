@@ -189,3 +189,8 @@ a.customColor23:hover, a.customColor1:focus {
 a.customColor24:hover, a.customColor1:focus {
   color: #0000ff !important;
 }
+
+.login-button {
+  margin: auto;
+  width: 50%;
+}

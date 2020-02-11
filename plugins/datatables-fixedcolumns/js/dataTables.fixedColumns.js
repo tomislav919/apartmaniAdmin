@@ -518,7 +518,7 @@ $.extend( FixedColumns.prototype , {
 		var mouseController;
 		var mouseDown = false;
 
-		// When the mouse is down (drag scroll) the mouse controller cannot
+		// When the mouse is down (drag scroll) the mouse controllers cannot
 		// change, as the browser keeps the original element as the scrolling one
 		$(this.s.dt.nTableWrapper).on( 'mousedown.DTFC', function (e) {
 			if ( e.button === 0 ) {

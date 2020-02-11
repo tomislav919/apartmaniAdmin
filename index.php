@@ -19,13 +19,22 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
+    <?php
 
+    require "bootstrap.php";
+    $events = Event::select('title', 'start', 'end', 'backgroundColor', 'borderColor')->get();
+
+    $events = str_replace('"', '', $events);
+
+
+
+    ?>
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
-            <div class="sticky-top mb-3">
+            <div class="sticky-top mb-3" hidden>
               <div class="card">
                 <div class="card-header">
                   <h4 class="card-title">Draggable Events</h4>
@@ -42,8 +51,8 @@
                     <div class="checkbox" hidden>
                       <label for="drop-remove">
                         <input type="checkbox" id="drop-remove" checked>
-  remove after drop
-</label>
+                        remove after drop
+                      </label>
                     </div>
                   </div>
                 </div>
@@ -99,7 +108,7 @@
             </div>
           </div>
           <!-- /.col -->
-          <div class="col-md-9">
+          <div class="col-md-12">
             <div class="card card-primary">
               <div class="card-body p-0">
                 <!-- THE CALENDAR -->
@@ -116,9 +125,11 @@
     </section>
     <!-- /.content -->
   </div>
+
+
   <!-- /.content-wrapper -->
-<?php include('include/footer.php'); ?>
-<!-- ./wrapper -->
-<?php include('include/scripts.php'); ?>
+  <?php include('include/footer.php'); ?>
+  <!-- ./wrapper -->
+  <?php include('include/scriptsUser.php'); ?>
 </body>
 </html>
