@@ -20,6 +20,7 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition login-page">
+<?php include('include/sessionMessage.php'); ?>
 <div class="login-box">
   <div class="login-logo">
     <a href="/apartmaniAdmin/index.php"><b>Apartmani</b>Babe</a>

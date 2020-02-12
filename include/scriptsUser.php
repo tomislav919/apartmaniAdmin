@@ -79,9 +79,8 @@
         };
       }
     });
-    console.log(new Date(y, m, 1));
 
-    var eventsss = <?php echo $events; ?>;
+    var eventsFromDB = <?php echo $events; ?>;
 
     var calendar = new Calendar(calendarEl, {
       plugins: [ 'bootstrap', 'interaction', 'dayGrid', 'timeGrid' ],
@@ -92,7 +91,7 @@
       },
 
       //Random default events
-      events    : eventsss,
+      events    : eventsFromDB,
       editable  : false,
       droppable : false, // this allows things to be dropped onto the calendar !!!
       drop      : function(info) {

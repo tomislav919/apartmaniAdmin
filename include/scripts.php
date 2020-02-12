@@ -77,6 +77,8 @@
       }
     });
 
+    var eventsFromDB = <?php echo $events; ?>;
+
     var calendar = new Calendar(calendarEl, {
       plugins: [ 'bootstrap', 'interaction', 'dayGrid', 'timeGrid' ],
       header    : {
@@ -86,62 +88,48 @@
       },
 
       //Random default events
-      events    : [
-        {
-          title          : 'All Day Event',
-          start          : new Date(y, m, 1),
-          end            : new Date(y, m, 4),
-          backgroundColor: '#f56954', //red
-          borderColor    : '#f56954', //red
-          allDay         : true
-        },
-        {
-          title          : 'Long Event',
-          start          : new Date(y, m, d - 5),
-          end            : new Date(y, m, d - 1),
-          backgroundColor: '#f39c12', //yellow
-          borderColor    : '#f39c12' //yellow
-        },
-        {
-          title          : 'Meeting',
-          start          : new Date(y, m, d, 10, 30),
-          allDay         : false,
-          backgroundColor: '#0073b7', //Blue
-          borderColor    : '#0073b7' //Blue
-        },
-        {
-          title          : 'Lunch',
-          start          : new Date(y, m, d, 12, 0),
-          end            : new Date(y, m, d, 14, 0),
-          allDay         : false,
-          backgroundColor: '#00c0ef', //Info (aqua)
-          borderColor    : '#00c0ef' //Info (aqua)
-        },
-        {
-          title          : 'Birthday Party',
-          start          : new Date(y, m, d + 1, 19, 0),
-          end            : new Date(y, m, d + 1, 22, 30),
-          allDay         : false,
-          backgroundColor: '#00a65a', //Success (green)
-          borderColor    : '#00a65a' //Success (green)
-        },
-        {
-          title          : 'Click for Google',
-          start          : new Date(y, m, 28),
-          end            : new Date(y, m, 29),
-          url            : 'http://google.com/',
-          backgroundColor: '#3c8dbc', //Primary (light-blue)
-          borderColor    : '#3c8dbc' //Primary (light-blue)
-        }
-      ],
+      events    : eventsFromDB,
       editable  : true,
       droppable : true, // this allows things to be dropped onto the calendar !!!
       drop      : function(info) {
+        console.log('obicni drop je aktiviran');
         // is the "remove after drop" checkbox checked?
         if (checkbox.checked) {
           // if so, remove the element from the "Draggable Events" list
           info.draggedEl.parentNode.removeChild(info.draggedEl);
         }
+      },
+      eventDrop: function(info) {
+        console.log('event drop je aktiviran');
+        alert(info.event.title + " was dropped on " + info.event.start.toISOString());
+
+        if (!confirm("Are you sure about this change?")) {
+          info.revert();
+        }
+      },
+      eventRecieve: function(info) {
+        console.log('eventRecieve je aktiviran');
+      },
+      eventResizeStop: function(info) {
+        console.log('eventResizeStop je aktiviran');
+        $.ajax({
+          url: '/apartmaniAdmin/controllers/saveEvents.php',
+          type: 'POST',
+          data: {
+            summary: 1,
+            start: 2,
+            end: 3
+          },
+          success: function (res) {
+            console.log('ajax je uspio');
+
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus);
+            console.log(errorThrown);
+          }
+
+        });
       }
     });
 

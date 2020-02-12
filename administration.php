@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <?php include('include/sessionCheck.php'); ?>
   <?php include('include/header.php') ?>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-  <?php include('include/navigation.php'); ?>
+  <?php include('include/navigationAdmin.php'); ?>
+  <?php require "bootstrap.php"; ?>
+  <?php
+  $events = Event::getForApartment(1);
+  ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -38,9 +43,9 @@
                     <div class="external-event bg-info">Do homework</div>
                     <div class="external-event bg-primary">Work on UI design</div>
                     <div class="external-event bg-danger">Sleep tight</div>
-                    <div class="checkbox">
+                    <div class="checkbox" hidden>
                       <label for="drop-remove">
-                        <input type="checkbox" id="drop-remove">
+                        <input type="checkbox" id="drop-remove" checked>
                         remove after drop
                       </label>
                     </div>

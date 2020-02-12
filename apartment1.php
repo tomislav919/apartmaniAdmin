@@ -6,7 +6,6 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <?php include('include/navigation.php'); ?>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
