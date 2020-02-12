@@ -19,16 +19,6 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-    <?php
-
-    require "bootstrap.php";
-    $events = Event::select('title', 'start', 'end', 'backgroundColor', 'borderColor')->get();
-
-    $events = str_replace('"', '', $events);
-
-echo $_SERVER['DOCUMENT_ROOT'];
-
-    ?>
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -130,6 +120,6 @@ echo $_SERVER['DOCUMENT_ROOT'];
   <!-- /.content-wrapper -->
 <?php include('include/footer.php'); ?>
 <!-- ./wrapper -->
-<?php include('include/scriptsUser.php'); ?>
+<?php include('include/scripts.php'); ?>
 </body>
 </html>

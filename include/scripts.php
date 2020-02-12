@@ -15,7 +15,7 @@
 <script src="plugins/fullcalendar-timegrid/main.min.js"></script>
 <script src="plugins/fullcalendar-interaction/main.min.js"></script>
 <script src="plugins/fullcalendar-bootstrap/main.min.js"></script>
-<script src="js/"></script>
+
 <!-- Page specific script -->
 <script>
   $(function () {

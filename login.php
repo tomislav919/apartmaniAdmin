@@ -49,8 +49,6 @@
         <div class="row">
           <!-- /.col -->
             <button type="submit" class="btn btn-primary btn-block login-button">Sign In</button>
-
-
           <!-- /.col -->
         </div>
       </form>

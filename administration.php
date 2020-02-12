@@ -57,11 +57,30 @@
                   <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
                     <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
                     <ul class="fc-color-picker" id="color-chooser">
-                      <li><a class="text-primary" href="#"><i class="fas fa-square"></i></a></li>
-                      <li><a class="text-warning" href="#"><i class="fas fa-square"></i></a></li>
-                      <li><a class="text-success" href="#"><i class="fas fa-square"></i></a></li>
-                      <li><a class="text-danger" href="#"><i class="fas fa-square"></i></a></li>
-                      <li><a class="text-muted" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor1" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor2" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor3" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor4" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor5" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor6" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor7" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor8" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor9" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor10" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor11" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor12" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor13" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor14" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor15" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor16" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor17" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor18" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor19" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor20" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor21" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor22" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor23" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor24" href="#"><i class="fas fa-square"></i></a></li>
                     </ul>
                   </div>
                   <!-- /btn-group -->

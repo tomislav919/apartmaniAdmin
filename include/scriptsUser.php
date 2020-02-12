@@ -79,6 +79,7 @@
         };
       }
     });
+    console.log(new Date(y, m, 1));
 
     var eventsss = <?php echo $events; ?>;
 

@@ -2,8 +2,11 @@
 
 include('../bootstrap.php');
 
-var_dump($_POST);
-
+session_start();
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+  header("location: administration.php");
+  exit;
+}
 $name = $_POST['name'];
 $password = $_POST['password'];
 
