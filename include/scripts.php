@@ -93,9 +93,7 @@
       editable  : true,
       droppable : true, // this allows things to be dropped onto the calendar !!!
       eventDurationEditable: true,
-      eventReceive: function(info){
-
-
+      eventReceive: function(info){   // this triggers when an event is dropped on the calendar
         $.ajax({
           url: '/apartmaniAdmin/controllers/eventCreate.php',
           type: 'POST',
@@ -126,26 +124,31 @@
         }
       },
       eventDrop: function(info) {
-        console.log('event drop je aktiviran');
-        alert(info.event.title + " was dropped on " + info.event.start.toISOString());
-
-        if (!confirm("Are you sure about this change?")) {
-          info.revert();
+        var endEvent;
+        var eventNew = calendar.getEventById(info.event.id);
+        if(info.event.end == null){
+          endEvent = null;
+        } else {
+          endEvent = eventNew.end.toISOString();
         }
-      },
-      eventRecieve: function(info) {
-        console.log('eventRecieve je aktiviran');
-      },
-      eventResize: function(info) {
+
+        /*
+        console.log('end novog kalendara: ' + eventNew.end);
+        console.log('event start: ' +  info.event.start);
+        console.log('event start ISO: ' + info.event.start.toISOString());
+        console.log('endEvent custom: ' + endEvent);
+        console.log('end normal: ' + info.event.end);
+        console.log('id: ' + info.event.id);
+        console.log('apartmentId: ' + apartmentId);
+        */
+
         $.ajax({
-          url: '/apartmaniAdmin/controllers/saveEvents.php',
+          url: '/apartmaniAdmin/controllers/eventUpdate.php',
           type: 'POST',
           data: {
-            title: info.event.title,
             start: info.event.start.toISOString(),
-            end: info.event.end.toISOString(),
-            backgroundColor: info.event.backgroundColor,
-            borderColor: info.event.borderColor,
+            end: endEvent,
+            id: info.event.id,
             apartmentId: apartmentId,
           },
           success: function (res) {
@@ -157,6 +160,44 @@
             console.log(errorThrown);
           }
 
+        });
+
+        /*
+        alert(info.event.title + " was dropped on " + info.event.start.toISOString());
+
+        if (!confirm("Are you sure about this change?")) {
+          info.revert();
+        }
+        */
+      },
+      eventRecieve: function(info) {
+        console.log('eventRecieve je aktiviran');
+      },
+      eventResize: function(info) {
+        var endEvent;
+        var eventNew = calendar.getEventById(info.event.id);
+        if(info.event.end == null){
+          endEvent = null;
+        } else {
+          endEvent = eventNew.end.toISOString();
+        }
+        $.ajax({
+          url: '/apartmaniAdmin/controllers/eventUpdate.php',
+          type: 'POST',
+          data: {
+            start: info.event.start.toISOString(),
+            end: endEvent,
+            id: info.event.id,
+            apartmentId: apartmentId,
+          },
+          success: function (res) {
+            console.log('ajax je uspio');
+
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus);
+            console.log(errorThrown);
+          }
         });
       }
     });

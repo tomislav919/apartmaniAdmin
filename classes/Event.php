@@ -6,7 +6,7 @@ class Event extends Eloquent
 
   public static function getForApartment ($apartmentId)
   {
-    $events = Event::select('title', 'start', 'end', 'backgroundColor', 'borderColor')->get()->toArray();
+    $events = Event::select('id', 'title', 'start', 'end', 'backgroundColor', 'borderColor')->get()->toArray();
 
     //Adding text color to events (white) and allDay option
     $i = 0;
