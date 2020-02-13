@@ -3,8 +3,8 @@
 include('../bootstrap.php');
 
 session_start();
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-  header("location: administration.php");
+if(isset($_SESSION["user"])){
+  header("location: /apartmaniAdmin/administration.php");
   exit;
 }
 

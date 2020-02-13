@@ -16,7 +16,6 @@ class Event extends Eloquent
       $events[$i]['allDay'] = true;
       $i++;
     }
-
     return json_encode($events);
   }
 }
