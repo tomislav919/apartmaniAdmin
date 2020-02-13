@@ -14,6 +14,8 @@ class Event extends Eloquent
     {
       $events[$i]['textColor'] = 'rgb(255, 255, 255)';
       $events[$i]['allDay'] = true;
+      $events[$i]['description'] = 'neki random komentar';
+
       $i++;
     }
     return json_encode($events);

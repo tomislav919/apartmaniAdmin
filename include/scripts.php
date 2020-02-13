@@ -80,6 +80,7 @@
     var eventsFromDB = <?php echo $events; ?>;
     var apartmentId = <?php echo $apartmentId; ?>;
 
+
     var calendar = new Calendar(calendarEl, {
       plugins: [ 'bootstrap', 'interaction', 'dayGrid', 'timeGrid' ],
       header    : {
@@ -88,7 +89,6 @@
         right : 'month'
       },
 
-      //Random default events
       events    : eventsFromDB,
       editable  : true,
       droppable : true, // this allows things to be dropped onto the calendar !!!
@@ -106,6 +106,7 @@
             apartmentId: apartmentId,
           },
           success: function (res) {
+            location.reload(true);
             console.log('ajax je uspio');
 
           },
@@ -116,6 +117,7 @@
 
         });
       },
+
       drop      : function(info) {
         // is the "remove after drop" checkbox checked?
         if (checkbox.checked) {
@@ -173,20 +175,40 @@
       eventRecieve: function(info) {
         console.log('eventRecieve je aktiviran');
       },
+      eventClick: function(info) {
+       if(confirm("Are you sure you want to DELETE: " + info.event.title)) {
+
+          info.event.remove();
+
+          $.ajax({
+             url: '/apartmaniAdmin/controllers/eventDelete.php',
+             type: 'POST',
+             data: {               
+               id: info.event.id
+             },
+             success: function (res) {
+               console.log('ajax je uspio, event obrisan');
+             },
+             error: function (jqXHR, textStatus, errorThrown) {
+               console.log(textStatus);
+               console.log(errorThrown);
+             }
+          });
+       };
+
+
+      },
       eventResize: function(info) {
-        var endEvent;
-        var eventNew = calendar.getEventById(info.event.id);
-        if(info.event.end == null){
-          endEvent = null;
-        } else {
-          endEvent = eventNew.end.toISOString();
-        }
+        console.log(info.event.start.toISOString());
+        console.log(info.event.end.toISOString());
+        console.log(info.event);
+        console.log(apartmentId);
         $.ajax({
           url: '/apartmaniAdmin/controllers/eventUpdate.php',
           type: 'POST',
           data: {
             start: info.event.start.toISOString(),
-            end: endEvent,
+            end: info.event.end.toISOString(),
             id: info.event.id,
             apartmentId: apartmentId,
           },

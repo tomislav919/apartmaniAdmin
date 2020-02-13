@@ -8,7 +8,7 @@ Capsule::schema()->create('events', function ($table) {
   $table->unsignedBigInteger('apartment_id');
   $table->foreign('apartment_id')->references('id')->on('apartments');
   $table->string('title');
-  $table->string('comment')->nullable();
+  $table->string('description')->nullable();
   $table->string('start');
   $table->string('end')->nullable();
   $table->string('allDay')->nullable();

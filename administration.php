@@ -39,11 +39,11 @@
                 <div class="card-body">
                   <!-- the events -->
                   <div id="external-events">
-                    <div class="external-event bg-success">Lunch</div>
-                    <div class="external-event bg-warning">Go home</div>
-                    <div class="external-event bg-info">Do homework</div>
-                    <div class="external-event bg-primary">Work on UI design</div>
-                    <div class="external-event bg-danger">Sleep tight</div>
+                    <div class="external-event bg-success" data-toggle="tooltip" title="Hooray1!">Lunch</div>
+                    <div class="external-event bg-warning" data-toggle="tooltip" title="Hooray2!">Go home</div>
+                    <div class="external-event bg-info" data-toggle="tooltip" title="Hooray3!">Do homework</div>
+                    <div class="external-event bg-primary" data-toggle="tooltip" title="Hooray4!">Work on UI design</div>
+                    <div class="external-event bg-danger" data-toggle="tooltip" title="">Sleep tight</div>
                     <div class="checkbox" hidden>
                       <label for="drop-remove">
                         <input type="checkbox" id="drop-remove" checked>

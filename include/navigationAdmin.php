@@ -1,9 +1,9 @@
 <!-- TOP Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-purple navbar-light">
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="/apartmaniAdmin/include/sessionUnset.php" class="nav-link">Log out</a>
+      <a href="/apartmaniAdmin/include/sessionUnset.php" class="nav-link"><p class="whiteFont">Log out</p></a>
     </li>
   </ul>
 </nav>
@@ -13,7 +13,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="/apartmaniAdmin/apartments/index.php" class="brand-link" style="text-align: center">
-    <span class="brand-text font-weight-light" >Apartmani Babe</span>
+    <span class="brand-text font-weight-light" >Apartmani Babe Admin</span>
   </a>
 
   <!-- LEFT Sidebar -->

@@ -194,3 +194,7 @@ a.customColor24:hover, a.customColor1:focus {
   margin: auto;
   width: 50%;
 }
+
+.whiteFont {
+  color: white;
+}
