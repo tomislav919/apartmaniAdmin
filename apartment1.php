@@ -40,8 +40,8 @@
                     <div class="checkbox" hidden>
                       <label for="drop-remove">
                         <input type="checkbox" id="drop-remove" checked>
-  remove after drop
-</label>
+                        remove after drop
+                      </label>
                     </div>
                   </div>
                 </div>

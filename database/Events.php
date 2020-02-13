@@ -10,8 +10,8 @@ Capsule::schema()->create('events', function ($table) {
   $table->string('title');
   $table->string('comment')->nullable();
   $table->string('start');
-  $table->string('end');
-  $table->string('allDay');
+  $table->string('end')->nullable();
+  $table->string('allDay')->nullable();
   $table->string('backgroundColor');
   $table->string('borderColor');
   $table->rememberToken();

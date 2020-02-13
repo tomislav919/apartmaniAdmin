@@ -23,7 +23,7 @@
 <?php include('include/sessionMessage.php'); ?>
 <div class="login-box">
   <div class="login-logo">
-    <a href="/apartmaniAdmin/index.php"><b>Apartmani</b>Babe</a>
+    <a href="/apartmaniAdmin/apartments/apartment1.php"><b>Apartmani</b>Babe</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">

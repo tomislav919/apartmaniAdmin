@@ -78,6 +78,7 @@
     });
 
     var eventsFromDB = <?php echo $events; ?>;
+    var apartmentId = <?php echo $apartmentId; ?>;
 
     var calendar = new Calendar(calendarEl, {
       plugins: [ 'bootstrap', 'interaction', 'dayGrid', 'timeGrid' ],
@@ -91,8 +92,33 @@
       events    : eventsFromDB,
       editable  : true,
       droppable : true, // this allows things to be dropped onto the calendar !!!
+      eventDurationEditable: true,
+      eventReceive: function(info){
+
+
+        $.ajax({
+          url: '/apartmaniAdmin/controllers/eventCreate.php',
+          type: 'POST',
+          data: {
+            title: info.event.title,
+            start: info.event.start.toISOString(),
+            end: info.event.end,
+            backgroundColor: info.event.backgroundColor,
+            borderColor: info.event.borderColor,
+            apartmentId: apartmentId,
+          },
+          success: function (res) {
+            console.log('ajax je uspio');
+
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus);
+            console.log(errorThrown);
+          }
+
+        });
+      },
       drop      : function(info) {
-        console.log('obicni drop je aktiviran');
         // is the "remove after drop" checkbox checked?
         if (checkbox.checked) {
           // if so, remove the element from the "Draggable Events" list
@@ -110,15 +136,17 @@
       eventRecieve: function(info) {
         console.log('eventRecieve je aktiviran');
       },
-      eventResizeStop: function(info) {
-        console.log('eventResizeStop je aktiviran');
+      eventResize: function(info) {
         $.ajax({
           url: '/apartmaniAdmin/controllers/saveEvents.php',
           type: 'POST',
           data: {
-            summary: 1,
-            start: 2,
-            end: 3
+            title: info.event.title,
+            start: info.event.start.toISOString(),
+            end: info.event.end.toISOString(),
+            backgroundColor: info.event.backgroundColor,
+            borderColor: info.event.borderColor,
+            apartmentId: apartmentId,
           },
           success: function (res) {
             console.log('ajax je uspio');
