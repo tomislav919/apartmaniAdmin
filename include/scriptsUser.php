@@ -21,12 +21,10 @@
 
 <!-- ------ NAVIGATION  SCRIPT --------- -->
 <script>
-let activeApp = <?php echo $apartmentId; ?>;
-activeApp = 'ap' + activeApp;
-console.log(activeApp);
-$('#' + activeApp).addClass('active');
-
-
+  let activeApp = <?php echo $apartmentId; ?>;
+  activeApp = 'ap' + activeApp;
+  console.log(activeApp);
+  $('#' + activeApp).addClass('active');
 </script>
 
 
