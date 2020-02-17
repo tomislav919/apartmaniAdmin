@@ -6,3 +6,4 @@ print_r($user->Calendar()->create([
   'name' => "Rezervacija Josip",
   'apartment_id' => 1
 ]));
+

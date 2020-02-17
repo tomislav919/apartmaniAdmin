@@ -20,7 +20,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Calendar</h1>
+            <h1>Reservation administrator</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -34,16 +34,11 @@
             <div class="sticky-top mb-3">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Draggable Events</h4>
+                  <h4 class="card-title">Draggable Reservations</h4>
                 </div>
                 <div class="card-body">
                   <!-- the events -->
                   <div id="external-events">
-                    <div class="external-event bg-success" data-toggle="tooltip" title="Hooray1!">Lunch</div>
-                    <div class="external-event bg-warning" data-toggle="tooltip" title="Hooray2!">Go home</div>
-                    <div class="external-event bg-info" data-toggle="tooltip" title="Hooray3!">Do homework</div>
-                    <div class="external-event bg-primary" data-toggle="tooltip" title="Hooray4!">Work on UI design</div>
-                    <div class="external-event bg-danger" data-toggle="tooltip" title="">Sleep tight</div>
                     <div class="checkbox" hidden>
                       <label for="drop-remove">
                         <input type="checkbox" id="drop-remove" checked>
@@ -57,7 +52,7 @@
               <!-- /.card -->
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Create Event</h3>
+                  <h3 class="card-title">Create a Reservation</h3>
                 </div>
                 <div class="card-body">
                   <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
@@ -87,6 +82,20 @@
                       <li><a class="customColor22" href="#"><i class="fas fa-square"></i></a></li>
                       <li><a class="customColor23" href="#"><i class="fas fa-square"></i></a></li>
                       <li><a class="customColor24" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor25" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor26" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor27" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor28" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor29" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor30" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor31" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor32" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor33" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor34" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor35" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor36" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor37" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="customColor38" href="#"><i class="fas fa-square"></i></a></li>
                     </ul>
                   </div>
                   <!-- /btn-group -->
