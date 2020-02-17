@@ -12,7 +12,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="/apartmaniAdmin/apartments/index.php" class="brand-link" style="text-align: center">
+  <a href="/apartmaniAdmin/administration/index.php" class="brand-link" style="text-align: center">
     <span class="brand-text font-weight-light" >Apartmani Babe Admin</span>
   </a>
 
