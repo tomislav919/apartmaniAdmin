@@ -190,6 +190,118 @@ a.customColor24:hover, a.customColor1:focus {
   color: #0000ff !important;
 }
 
+.customColor25 {
+  color: #72A0C1 !important;
+}
+
+a.customColor25:hover25, a.customColor1:focus {
+  color: #72A0C1 !important;
+}
+
+.customColor26 {
+  color: #C46210 !important;
+}
+
+a.customColor26:hover, a.customColor1:focus {
+  color: #C46210 !important;
+}
+
+.customColor27 {
+  color: #E52B50 !important;
+}
+
+a.customColor27:hover, a.customColor1:focus {
+  color: #E52B50 !important;
+}
+
+.customColor28 {
+  color: #9F2B68 !important;
+}
+
+a.customColor28:hover, a.customColor1:focus {
+  color: #9F2B68 !important;
+}
+
+.customColor29 {
+  color: #3B7A57 !important;
+}
+
+a.customColor29:hover, a.customColor1:focus {
+  color: #3B7A57 !important;
+}
+
+.customColor30 {
+  color: #FF7E00 !important;
+}
+
+a.customColor30:hover, a.customColor1:focus {
+  color: #FF7E00 !important;
+}
+
+.customColor31 {
+  color: #A4C639 !important;
+}
+
+a.customColor31:hover, a.customColor1:focus {
+  color: #A4C639 !important;
+}
+
+.customColor32 {
+  color: #915C83 !important;
+}
+
+a.customColor32:hover, a.customColor1:focus {
+  color: #915C83 !important;
+}
+
+.customColor33 {
+  color: #841B2D !important;
+}
+
+a.customColor33:hover, a.customColor1:focus {
+  color: #841B2D !important;
+}
+
+.customColor34 {
+  color: #A52A2A !important;
+}
+
+a.customColor34:hover, a.customColor1:focus {
+  color: #A52A2A !important;
+}
+
+.customColor35 {
+  color: #DA1884 !important;
+}
+
+a.customColor35:hover, a.customColor1:focus {
+  color: #DA1884 !important;
+}
+
+.customColor36 {
+  color: #3D0C02 !important;
+}
+
+a.customColor36:hover, a.customColor1:focus {
+  color: #3D0C02 !important;
+}
+
+.customColor37 {
+  color: #1B1811 !important;
+}
+
+a.customColor37:hover, a.customColor1:focus {
+  color: #1B1811 !important;
+}
+
+.customColor38 {
+  color: #3B3C36 !important;
+}
+
+a.customColor38:hover, a.customColor1:focus {
+  color: #3B3C36 !important;
+}
+
 .login-button {
   margin: auto;
   width: 50%;
@@ -198,6 +310,22 @@ a.customColor24:hover, a.customColor1:focus {
 .whiteFont {
   color: white;
 }
+
+
+/* ---- LOADING OVERLAY CSS START ----*/
+#loading-overlay {
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 1051;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  cursor: wait;
+}
+
+/* ---- LOADING OVERLAY CSS END ---- */
 
 /* ---- TOOLTIP CSS START ----*/
 

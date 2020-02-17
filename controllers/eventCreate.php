@@ -2,7 +2,7 @@
 require "../bootstrap.php";
 
 
-Event::Create([
+$event = Event::Create([
     'title' => $_POST['title'],
     'start' => $_POST['start'],
     'end' => null,
@@ -12,6 +12,10 @@ Event::Create([
     'apartment_id' => $_POST['apartmentId'],
     'allDay' => null
 ]);
+
+$data = $event->id;
+
+echo $data;
 
 
 //Calendar::Create(['name' => $test]);
