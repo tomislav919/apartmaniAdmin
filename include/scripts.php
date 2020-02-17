@@ -183,7 +183,7 @@
           $.ajax({
              url: '/apartmaniAdmin/controllers/eventDelete.php',
              type: 'POST',
-             data: {               
+             data: {
                id: info.event.id
              },
              success: function (res) {
