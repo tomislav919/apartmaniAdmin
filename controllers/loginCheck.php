@@ -4,7 +4,7 @@ include('../bootstrap.php');
 
 session_start();
 if(isset($_SESSION["user"])){
-  header("location: ../administration.php");
+  header("location: ../apartment1.php");
   exit;
 }
 
@@ -21,7 +21,7 @@ if (isset($user))
     if($user->password == $password){
      //echo 'password je ok, može login';
       $_SESSION['user'] = $name;
-      header('Location: /apartmaniAdmin/administration.php');
+      header('Location: /apartmaniAdmin/apartment1.php');
     } else {
       //echo 'password je neispravan';
       $_SESSION['message'] = 1;

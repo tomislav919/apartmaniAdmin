@@ -106,7 +106,6 @@
           },
           success: function (data) {
 
-
             //console.log(data); //ID iz baze
             //info.event.id = data;
             console.log(info.event.id);

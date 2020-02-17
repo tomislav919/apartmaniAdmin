@@ -6,7 +6,11 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <?php include('../include/navigation.php'); ?>
-
+  <?php require "../bootstrap.php"; ?>
+  <?php
+  $apartmentId = 0; // 0 je ID za sve apartmane zajedno
+  $events = Event::getAll();
+  ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -14,21 +18,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Calendar</h1>
+            <h1>All apartments</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
-    <?php
-
-    require "../bootstrap.php";
-    $events = Event::select('title', 'start', 'end', 'backgroundColor', 'borderColor')->get();
-
-    $events = str_replace('"', '', $events);
-
-
-
-    ?>
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">

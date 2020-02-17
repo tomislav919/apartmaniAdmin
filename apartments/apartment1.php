@@ -8,7 +8,8 @@
   <?php include('../include/navigation.php'); ?>
   <?php require "../bootstrap.php"; ?>
   <?php
-  $events = Event::getForApartment(1);
+  $apartmentId = 1;
+  $events = Event::getForApartment($apartmentId);
   ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

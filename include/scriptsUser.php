@@ -19,6 +19,18 @@
 
 
 
+<!-- ------ NAVIGATION  SCRIPT --------- -->
+<script>
+let activeApp = <?php echo $apartmentId; ?>;
+activeApp = 'ap' + activeApp;
+console.log(activeApp);
+$('#' + activeApp).addClass('active');
+
+
+</script>
+
+
+<!-- ------ CALENDAR SCRIPT --------- -->
 <script>
 
   $(function () {

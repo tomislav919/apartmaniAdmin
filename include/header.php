@@ -18,4 +18,4 @@
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 <!-- Custom css -->
-<link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="/apartmaniAdmin/css/custom.css">

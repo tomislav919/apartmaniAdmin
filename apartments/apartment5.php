@@ -6,7 +6,11 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <?php include('../include/navigation.php'); ?>
-
+  <?php require "../bootstrap.php"; ?>
+  <?php
+  $apartmentId = 5;
+  $events = Event::getForApartment($apartmentId);
+  ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -19,16 +23,6 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-    <?php
-
-    require "../bootstrap.php";
-    $events = Event::select('title', 'start', 'end', 'backgroundColor', 'borderColor')->get();
-
-    $events = str_replace('"', '', $events);
-
-
-
-    ?>
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
