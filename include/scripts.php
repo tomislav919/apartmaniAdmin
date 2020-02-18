@@ -27,6 +27,23 @@
 </script>
 
 
+<!-- ----- CUSTOM ADD DAY SCRIPT ----- -->
+<script>
+  Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+  };
+
+  Date.prototype.subtractDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() - days);
+    return date;
+  };
+</script>
+
+
+
 <!-- ------ CALENDAR SCRIPT --------- -->
 <script>
   $(function () {
@@ -102,37 +119,92 @@
       editable  : true,
       droppable : true, // this allows things to be dropped onto the calendar !!!
       eventDurationEditable: true,
+      timeZone: 'Europe/Zagreb',
       eventReceive: function(info){   // this triggers when an event is dropped on the calendar
 
+        /*
         console.log('element je droppan na calendar');
         console.log(eventsFromDB);
-        console.log('OVDJE POČINJE AJAX');
-        $.ajax({
-          url: '/apartmaniAdmin/controllers/eventCreate.php',
-          type: 'POST',
-          data: {
-            title: info.event.title,
-            start: info.event.start.toISOString(),
-            end: info.event.end,
-            backgroundColor: info.event.backgroundColor,
-            borderColor: info.event.borderColor,
-            apartmentId: apartmentId,
-          },
-          success: function (data) {
-            location.reload(true);
-            //console.log(data); //ID iz baze
-            //info.event.id = data;
-            console.log(info.event.id);
-            console.log(info);
-          },
-          error: function (jqXHR, textStatus, errorThrown) {
-            console.log('Došlo je do errora u ajax-u');
-            console.log(textStatus);
-            console.log(errorThrown);
-            location.reload(true); //refresh stranice tako da user primjeti da mu fali event, da nebi doslo do overbookinga
-          }
+        console.log(calendar.getEvents());
+        console.log("OVDJE ZAVRŠAVA PRVI DIO TESTA");
+        calendar.getEvents().forEach(element => console.log(element));
+        console.log("OVDJE ZAVRŠAVA DRUGI DIO TESTA");
+        let arr = calendar.getEvents();
+        let len = arr.length;
+        console.log('instance id trenutnog elementa je: ' + info.event._instance.instanceId);
+        console.log('len var je: ' + len);*/
 
-        });
+
+        let arr = calendar.getEvents();
+        let len = arr.length;
+
+        // Provjerava da li trenutni datum prelazi preko drugih datuma (napomena: moze ici na zadnji dan postojeceg datuma)
+        let arrEnd;
+        let doAjax = true;
+        for(let i = 0; i < (len); i++){
+          if(!(arr[i]['_instance']['instanceId'] == info.event._instance.instanceId)){
+            if (arr[i]['end'] == null){
+              arrEnd = null;
+            } else {
+              arrEnd = arr[i]['end'].subtractDays(1);
+            }
+            if(arr[i]['start'] <= info.event.start && info.event.start <  arrEnd){
+              //nemoj ubaciti u tablicu, izbaci error plači ča god ti paše
+              console.log('Ubacujes datum preko drugog datuma');
+              info.event.remove();
+              doAjax = false;
+              break;
+            }
+            /*
+            if(info.event.start > arr[i]['start']){
+              console.log('trenutni event ima veći početni datum od: ' + arr[i]['title']);
+              console.log('zadani datum : ' + arr[i]['start']);
+              var aaa = arr[i]['start'].addDays(2);
+              console.log('Prva verzija: ' + aaa);
+              //console.log('toISOString metoda: ' + aaa.toISOString());
+              console.log('toLocaleString metoda: ' + aaa.toLocaleString());
+              console.log('toISOString metoda: ' + aaa.toISOString());
+            }*/
+
+            /*console.log('--- THIS INSTANCE ---');
+            console.log('arr ins ID: ' + arr[i]['_instance']['instanceId'] + ', info.even inst ID: ' + info.event._instance.instanceId);
+            console.log(arr[i]['title']);
+            console.log(arr[i]['start']);
+            console.log(arr[i]['end']);
+            console.log('--------');*/
+          } else {
+           /* console.log('arr ins ID: ' + arr[i]['_instance']['instanceId'] + ', info.even inst ID: ' + info.event._instance.instanceId);
+            console.log('Sada je isti pa nece napravit cons log');*/
+            console.log('Datum okej, kralj si');
+          }
+        }
+
+       if (doAjax == true){
+         $.ajax({
+           url: '/apartmaniAdmin/controllers/eventCreate.php',
+           type: 'POST',
+           data: {
+             title: info.event.title,
+             start: info.event.start.toISOString(),
+             end: info.event.end,
+             backgroundColor: info.event.backgroundColor,
+             borderColor: info.event.borderColor,
+             apartmentId: apartmentId,
+           },
+           success: function (data) {
+             location.reload(true); //ovo za sada mora bit, dok taj id ne rijesim
+             //console.log(data); //ID iz baze
+             //info.event.id = data;
+           },
+           error: function (jqXHR, textStatus, errorThrown) {
+             console.log('Došlo je do errora u ajax-u');
+             console.log(textStatus);
+             console.log(errorThrown);
+             location.reload(true); //refresh stranice tako da user primjeti da mu fali event, da nebi doslo do overbookinga
+           }
+
+         });
+       }
       },
 
       drop      : function(info) {
@@ -151,15 +223,6 @@
           endEvent = eventNew.end.toISOString();
         }
 
-        /*
-        console.log('end novog kalendara: ' + eventNew.end);
-        console.log('event start: ' +  info.event.start);
-        console.log('event start ISO: ' + info.event.start.toISOString());
-        console.log('endEvent custom: ' + endEvent);
-        console.log('end normal: ' + info.event.end);
-        console.log('id: ' + info.event.id);
-        console.log('apartmentId: ' + apartmentId);
-        */
 
         $.ajax({
           url: '/apartmaniAdmin/controllers/eventUpdate.php',
