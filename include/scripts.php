@@ -103,6 +103,10 @@
       droppable : true, // this allows things to be dropped onto the calendar !!!
       eventDurationEditable: true,
       eventReceive: function(info){   // this triggers when an event is dropped on the calendar
+
+        console.log('element je droppan na calendar');
+        console.log(eventsFromDB);
+        console.log('OVDJE POČINJE AJAX');
         $.ajax({
           url: '/apartmaniAdmin/controllers/eventCreate.php',
           type: 'POST',
