@@ -1,20 +1,20 @@
 <!-- jQuery -->
-<script src="/apartmaniAdmin/plugins/jquery/jquery.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap -->
-<script src="/apartmaniAdmin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- jQuery UI -->
-<script src="/apartmaniAdmin/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- AdminLTE App -->
-<script src="/apartmaniAdmin/dist/js/adminlte.min.js"></script>
+<script src="<?=ROOTPATH?>/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="/apartmaniAdmin/dist/js/demo.js"></script>
+<script src="<?=ROOTPATH?>/dist/js/demo.js"></script>
 <!-- fullCalendar 2.2.5 -->
-<script src="/apartmaniAdmin/plugins/moment/moment.min.js"></script>
-<script src="/apartmaniAdmin/plugins/fullcalendar/main.min.js"></script>
-<script src="/apartmaniAdmin/plugins/fullcalendar-daygrid/main.min.js"></script>
-<script src="/apartmaniAdmin/plugins/fullcalendar-timegrid/main.min.js"></script>
-<script src="/apartmaniAdmin/plugins/fullcalendar-interaction/main.min.js"></script>
-<script src="/apartmaniAdmin/plugins/fullcalendar-bootstrap/main.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/moment/moment.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/fullcalendar/main.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/fullcalendar-daygrid/main.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/fullcalendar-timegrid/main.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/fullcalendar-interaction/main.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/fullcalendar-bootstrap/main.min.js"></script>
 <!-- Page specific script -->
 
 
@@ -122,19 +122,6 @@
       timeZone: 'Europe/Zagreb',
       eventReceive: function(info){   // this triggers when an event is dropped on the calendar
 
-        /*
-        console.log('element je droppan na calendar');
-        console.log(eventsFromDB);
-        console.log(calendar.getEvents());
-        console.log("OVDJE ZAVRŠAVA PRVI DIO TESTA");
-        calendar.getEvents().forEach(element => console.log(element));
-        console.log("OVDJE ZAVRŠAVA DRUGI DIO TESTA");
-        let arr = calendar.getEvents();
-        let len = arr.length;
-        console.log('instance id trenutnog elementa je: ' + info.event._instance.instanceId);
-        console.log('len var je: ' + len);*/
-
-
         let arr = calendar.getEvents();
         let len = arr.length;
 
@@ -155,30 +142,10 @@
               doAjax = false;
               break;
             }
-            /*
-            if(info.event.start > arr[i]['start']){
-              console.log('trenutni event ima veći početni datum od: ' + arr[i]['title']);
-              console.log('zadani datum : ' + arr[i]['start']);
-              var aaa = arr[i]['start'].addDays(2);
-              console.log('Prva verzija: ' + aaa);
-              //console.log('toISOString metoda: ' + aaa.toISOString());
-              console.log('toLocaleString metoda: ' + aaa.toLocaleString());
-              console.log('toISOString metoda: ' + aaa.toISOString());
-            }*/
-
-            /*console.log('--- THIS INSTANCE ---');
-            console.log('arr ins ID: ' + arr[i]['_instance']['instanceId'] + ', info.even inst ID: ' + info.event._instance.instanceId);
-            console.log(arr[i]['title']);
-            console.log(arr[i]['start']);
-            console.log(arr[i]['end']);
-            console.log('--------');*/
           } else {
-           /* console.log('arr ins ID: ' + arr[i]['_instance']['instanceId'] + ', info.even inst ID: ' + info.event._instance.instanceId);
-            console.log('Sada je isti pa nece napravit cons log');*/
-            console.log('Datum okej, kralj si');
+            console.log('Datum okej');
           }
         }
-
        if (doAjax == true){
          $.ajax({
            url: '/apartmaniAdmin/controllers/eventCreate.php',
@@ -200,9 +167,9 @@
              console.log('Došlo je do errora u ajax-u');
              console.log(textStatus);
              console.log(errorThrown);
+             alert('Došlo je do greške spremanja rezervacije, molimo Vas da pokušate ponovno');
              location.reload(true); //refresh stranice tako da user primjeti da mu fali event, da nebi doslo do overbookinga
            }
-
          });
        }
       },
@@ -214,9 +181,12 @@
           info.draggedEl.parentNode.removeChild(info.draggedEl);
         }
       },
-      eventDrop: function(info) {
+      eventDrop: function(info) {  // Ovo se pokrene kada se event uzme s kalendara i baci natrag na kalendar
+
+        //ovaj dio je dodan jer iz nekog razloga ovdje info.event.end.toISOString() ne radi, ali kad ga dodijelim novoj varijabli najnormalnije funkcionira
         var endEvent;
         var eventNew = calendar.getEventById(info.event.id);
+
         if(info.event.end == null){
           endEvent = null;
         } else {
@@ -224,27 +194,72 @@
         }
 
 
-        $.ajax({
-          url: '/apartmaniAdmin/controllers/eventUpdate.php',
-          type: 'POST',
-          data: {
-            start: info.event.start.toISOString(),
-            end: endEvent,
-            id: info.event.id,
-            apartmentId: apartmentId,
-          },
-          success: function (res) {
-            console.log('ajax je uspio');
 
-          },
-          error: function (jqXHR, textStatus, errorThrown) {
-            console.log(textStatus);
-            console.log(errorThrown);
-            console.log('Došlo je do errora u ajax-u');
-            location.reload(true); //refresh stranice tako da user primjeti da mu fali event, da nebi doslo do overbookinga
+        let arr = calendar.getEvents();
+        let len = arr.length;
+
+        // Provjerava da li trenutni datum prelazi preko drugih datuma (napomena: moze ici na zadnji dan postojeceg datuma)
+        let arrStart;
+        let arrEnd;
+        let doAjax = true;
+        for(let i = 0; i < (len); i++){
+          if(!(arr[i]['_instance']['instanceId'] == info.event._instance.instanceId)){
+            if (arr[i]['end'] == null){
+              arrEnd = null;
+            } else {
+              arrEnd = arr[i]['end'].subtractDays(1);
+            }
+            arrStart = arr[i]['start'].addDays(1);
+
+            //provjerava da li se pocetak rezervacije koju drzi preklapa sa rezervacijom prije i dopušta joj da se preklapa 1 dan
+            if(arr[i]['start'] <= info.event.start && info.event.start <  arrEnd){
+              //nemoj ubaciti u tablicu, izbaci error plači ča god ti paše
+              console.log('Ubacujes rezervaciju preko rezervacije koja se nalazi prije');
+              info.revert();
+              doAjax = false;
+              break;
+            }
+            //provjera da li se kraj rezervacije koju drzi preklapa sa rezervacijom poslije i dopušta joj da se preklapa 1 dan
+            if(info.event.start <= arr[i]['start'] && info.event.end > arrStart){
+              //nemoj ubaciti u tablicu, izbaci error plači ča god ti paše
+              console.log('Ubacujes rezervaciju preko rezervacije koja se nalazi poslije');
+              info.revert();
+              doAjax = false;
+              break;
+            }
+
+
+          } else {
+            console.log('Datum okej');
           }
+        }
 
-        });
+
+
+
+
+        if(doAjax == true){
+          $.ajax({
+            url: '/apartmaniAdmin/controllers/eventUpdate.php',
+            type: 'POST',
+            data: {
+              start: info.event.start.toISOString(),
+              end: endEvent,
+              id: info.event.id,
+              apartmentId: apartmentId,
+            },
+            success: function (res) {
+              console.log('ajax je uspio');
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              console.log(textStatus);
+              console.log(errorThrown);
+              console.log('Došlo je do errora u ajax-u');
+              alert('Došlo je do greške spremanja rezervacije, molimo Vas da pokušate ponovno');
+              location.reload(true); //refresh stranice tako da user primjeti da mu fali event, da nebi doslo do overbookinga
+            }
+          });
+        }
 
         /*
         alert(info.event.title + " was dropped on " + info.event.start.toISOString());
@@ -275,38 +290,59 @@
                console.log(textStatus);
                console.log(errorThrown);
                console.log('Došlo je do errora u ajax-u');
-               location.reload(true); //refresh stranice tako da user primjeti da mu fali event, da nebi doslo do overbookinga
+               alert('Došlo je do greške spremanja rezervacije, molimo Vas da pokušate ponovno');
+               location.reload(true); // Refresh stranice tako da user primjeti da mu fali event, da nebi doslo do overbookinga
              }
           });
        };
 
 
       },
-      eventResize: function(info) {
-        console.log(info.event.start.toISOString());
-        console.log(info.event.end.toISOString());
-        console.log(info.event);
-        console.log(apartmentId);
-        $.ajax({
-          url: '/apartmaniAdmin/controllers/eventUpdate.php',
-          type: 'POST',
-          data: {
-            start: info.event.start.toISOString(),
-            end: info.event.end.toISOString(),
-            id: info.event.id,
-            apartmentId: apartmentId,
-          },
-          success: function (res) {
-            console.log('ajax je uspio');
+      eventResize: function(info) { // Ovo se pokrene kada se eventu doda ili smanji broj dana
 
-          },
-          error: function (jqXHR, textStatus, errorThrown) {
-            console.log(textStatus);
-            console.log(errorThrown);
-            console.log('Došlo je do errora u ajax-u');
-            location.reload(true); //refresh stranice tako da user primjeti da mu fali event, da nebi doslo do overbookinga
+        // Provjerava da li trenutni datum prelazi preko drugih datuma (napomena: moze ici na prvi dan slijedece rezervacije)
+        let arr = calendar.getEvents();
+        let arrStart;
+        let len = arr.length;
+        let doAjax = true;
+        for(let i = 0; i < (len); i++){
+          if(!(arr[i]['_instance']['instanceId'] == info.event._instance.instanceId)){
+            arrStart = arr[i]['start'].addDays(1);
+            if(info.event.start < arr[i]['start'] && info.event.end > arrStart){
+              //nemoj ubaciti u tablicu, izbaci error plači ča god ti paše
+              console.log('Povlacis trenutnu rezervaciju preko druge rezervacije');
+              info.revert();
+              doAjax = false;
+              break;
+            }
+          } else {
+            console.log('Datum okej');
           }
-        });
+        }
+
+        if(doAjax == true){
+          $.ajax({
+            url: '/apartmaniAdmin/controllers/eventUpdate.php',
+            type: 'POST',
+            data: {
+              start: info.event.start.toISOString(),
+              end: info.event.end.toISOString(),
+              id: info.event.id,
+              apartmentId: apartmentId,
+            },
+            success: function (res) {
+              console.log('ajax je uspio');
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              console.log(textStatus);
+              console.log(errorThrown);
+              console.log('Došlo je do errora u ajax-u');
+              alert('Došlo je do greške spremanja rezervacije, molimo Vas da pokušate ponovno');
+              location.reload(true); //refresh stranice tako da user primjeti da mu fali event, da nebi doslo do overbookinga
+            }
+          });
+        }
       }
     });
 

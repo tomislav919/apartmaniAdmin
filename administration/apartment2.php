@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+<?php require "../bootstrap.php"; ?>
 <html>
 <head>
-  <?php include('../include/sessionCheck.php'); ?>
-  <?php include('../include/header.php') ?>
+  <?php include(PATH . '/include/sessionCheck.php'); ?>
+  <?php include(PATH . '/include/header.php') ?>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-  <?php include('../include/navigationAdmin.php'); ?>
-  <?php require "../bootstrap.php"; ?>
+  <?php include(PATH . '/include/navigationAdmin.php'); ?>
+
   <?php
   $apartmentId = 2;
   $events = Event::getForApartment($apartmentId);
@@ -131,8 +132,8 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <?php include('../include/footer.php'); ?>
+  <?php include(PATH . '/include/footer.php'); ?>
   <!-- ./wrapper -->
-  <?php include('../include/scripts.php'); ?>
+  <?php include(PATH . '/include/scripts.php'); ?>
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 <!-- TOP Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
   <!-- Left navbar links -->
@@ -9,7 +10,7 @@
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="/apartmaniAdmin/login.php" class="nav-link">Log in</a>
+      <a href="<?=ROOTPATH?>/login.php" class="nav-link">Log in</a>
     </li>
   </ul>
 </nav>
@@ -18,7 +19,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="/apartmaniAdmin/apartments/index.php" class="brand-link" style="text-align: center">
+  <a href="<?=ROOTPATH?>/apartments/index.php" class="brand-link" style="text-align: center">
     <span class="brand-text font-weight-light" >Apartmani Babe</span>
   </a>
 
@@ -28,7 +29,7 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
-          <a href="/apartmaniAdmin/apartments/apartment1.php" id="ap1" class="nav-link">
+          <a href="<?=ROOTPATH?>/apartments/apartment1.php" id="ap1" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Apartman 1
@@ -37,7 +38,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/apartmaniAdmin/apartments/apartment2.php" id="ap2" class="nav-link">
+          <a href="<?=ROOTPATH?>/apartments/apartment2.php" id="ap2" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Apartman 2
@@ -46,7 +47,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/apartmaniAdmin/apartments/apartment3.php" id="ap3" class="nav-link">
+          <a href="<?=ROOTPATH?>/apartments/apartment3.php" id="ap3" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Apartman 3
@@ -55,7 +56,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/apartmaniAdmin/apartments/apartment4.php" id="ap4" class="nav-link">
+          <a href="<?=ROOTPATH?>/apartments/apartment4.php" id="ap4" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Apartman 4
@@ -64,7 +65,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/apartmaniAdmin/apartments/apartment5.php" id="ap5" class="nav-link">
+          <a href="<?=ROOTPATH?>/apartments/apartment5.php" id="ap5" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Apartman 5
@@ -73,7 +74,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/apartmaniAdmin/apartments/apartment6.php" id="ap6" class="nav-link">
+          <a href="<?=ROOTPATH?>/apartments/apartment6.php" id="ap6" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Apartman 6
@@ -82,7 +83,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/apartmaniAdmin/apartments/index.php" id="ap0" class="nav-link">
+          <a href="<?=ROOTPATH?>/apartments/index.php" id="ap0" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Svi apartmani

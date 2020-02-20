@@ -1,9 +1,10 @@
+<?php
+echo $_SERVER['SCRIPT_NAME'] . "<br/>";
+echo $_SERVER['REQUEST_URI'] . "<br/>";
+echo $_SERVER['PHP_SELF'] . "<br/>";
+echo $_SERVER['DOCUMENT_ROOT'] . "<br/>";
+echo getcwd() . "<br/>";
+echo dirname(__FILE__) . "<br/>";
+echo __DIR__ . "<br/>";
 
-require "bootstrap.php";
-Apartment::Create(['name' => "Apartment 1", "size" => 3]);
-$user = User::Create(['name' => "AdministratorUser", 'email' => "test@besoft.hr", 'password' => password_hash("12345678", PASSWORD_BCRYPT),]);
-print_r($user->Calendar()->create([
-  'name' => "Rezervacija Josip",
-  'apartment_id' => 1
-]));
-
+?>

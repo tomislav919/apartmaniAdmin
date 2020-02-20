@@ -1,20 +1,20 @@
 <!-- jQuery -->
-<script src="/apartmaniAdmin/plugins/jquery/jquery.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap -->
-<script src="/apartmaniAdmin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- jQuery UI -->
-<script src="/apartmaniAdmin/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- AdminLTE App -->
-<script src="/apartmaniAdmin/dist/js/adminlte.min.js"></script>
+<script src="<?=ROOTPATH?>/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="/apartmaniAdmin/dist/js/demo.js"></script>
+<script src="<?=ROOTPATH?>/dist/js/demo.js"></script>
 <!-- fullCalendar 2.2.5 -->
-<script src="/apartmaniAdmin/plugins/moment/moment.min.js"></script>
-<script src="/apartmaniAdmin/plugins/fullcalendar/main.min.js"></script>
-<script src="/apartmaniAdmin/plugins/fullcalendar-daygrid/main.min.js"></script>
-<script src="/apartmaniAdmin/plugins/fullcalendar-timegrid/main.min.js"></script>
-<script src="/apartmaniAdmin/plugins/fullcalendar-interaction/main.min.js"></script>
-<script src="/apartmaniAdmin/plugins/fullcalendar-bootstrap/main.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/moment/moment.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/fullcalendar/main.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/fullcalendar-daygrid/main.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/fullcalendar-timegrid/main.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/fullcalendar-interaction/main.min.js"></script>
+<script src="<?=ROOTPATH?>/plugins/fullcalendar-bootstrap/main.min.js"></script>
 <!-- Page specific script -->
 
 
