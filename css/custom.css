@@ -324,8 +324,21 @@ a.customColor38:hover, a.customColor1:focus {
   background-color: transparent;
   cursor: wait;
 }
-
 /* ---- LOADING OVERLAY CSS END ---- */
+
+.fc-sat {
+  font-weight: bold;
+  border-color: black;
+  background-color: #FAFAFA;
+}
+
+.fc-sun {
+  font-weight: bold;
+  border-color: black;
+  background-color: #F7F7F7;
+}
+
+
 
 /* ---- TOOLTIP CSS START ----*/
 

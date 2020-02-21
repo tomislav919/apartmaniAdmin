@@ -103,6 +103,7 @@
       //Random default events
       events    : eventsFromDB,
       editable  : false,
+      firstDay: 6,
       height: "auto",
       droppable : false, // this allows things to be dropped onto the calendar !!!
       drop      : function(info) {

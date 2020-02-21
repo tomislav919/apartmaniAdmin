@@ -120,6 +120,7 @@
       droppable : true, // this allows things to be dropped onto the calendar !!!
       eventDurationEditable: true,
       timeZone: 'Europe/Zagreb',
+      firstDay: 6,
       eventReceive: function(info){   // this triggers when an event is dropped on the calendar
 
         let arr = calendar.getEvents();
@@ -148,7 +149,7 @@
         }
        if (doAjax == true){
          $.ajax({
-           url: '/apartmaniAdmin/controllers/eventCreate.php',
+           url: '<?=ROOTPATH?>/controllers/eventCreate.php',
            type: 'POST',
            data: {
              title: info.event.title,
@@ -240,7 +241,7 @@
 
         if(doAjax == true){
           $.ajax({
-            url: '/apartmaniAdmin/controllers/eventUpdate.php',
+            url: '<?=ROOTPATH?>/controllers/eventUpdate.php',
             type: 'POST',
             data: {
               start: info.event.start.toISOString(),
@@ -278,7 +279,7 @@
           info.event.remove();
          console.log(info.event);
           $.ajax({
-             url: '/apartmaniAdmin/controllers/eventDelete.php',
+             url: '<?=ROOTPATH?>/controllers/eventDelete.php',
              type: 'POST',
              data: {
                id: info.event.id
@@ -322,7 +323,7 @@
 
         if(doAjax == true){
           $.ajax({
-            url: '/apartmaniAdmin/controllers/eventUpdate.php',
+            url: '<?=ROOTPATH?>/controllers/eventUpdate.php',
             type: 'POST',
             data: {
               start: info.event.start.toISOString(),

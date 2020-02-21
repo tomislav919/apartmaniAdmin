@@ -1,8 +1,8 @@
-<!DOCTYPE html>
 <?php require "../bootstrap.php"; ?>
+<?php include(PATH . '/include/sessionCheck.php'); ?>
+<!DOCTYPE html>
 <html>
 <head>
-  <?php include(PATH . '/include/sessionCheck.php'); ?>
   <?php include(PATH . '/include/header.php') ?>
 </head>
 <body class="hold-transition sidebar-mini">

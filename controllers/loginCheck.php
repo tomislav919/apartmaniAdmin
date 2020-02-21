@@ -4,7 +4,7 @@ include('../bootstrap.php');
 
 session_start();
 if(isset($_SESSION["user"])){
-  header("location: /apartmaniAdmin/administration/apartment1.php");
+  header("location: " . ROOTPATH . "/administration/apartment1.php");
   exit;
 }
 
@@ -21,11 +21,11 @@ if (isset($user))
     if($user->password == $password){
      //echo 'password je ok, može login';
       $_SESSION['user'] = $name;
-      header('Location: /apartmaniAdmin/administration/apartment1.php');
+      header('Location: ' . ROOTPATH . '/administration/apartment1.php');
     } else {
       //echo 'password je neispravan';
       $_SESSION['message'] = 1;
-      header("location: /apartmaniAdmin/login.php");
+      header("location: " . ROOTPATH . "/login.php");
 
     }
 }
@@ -33,7 +33,7 @@ else
 {
     //echo 'user nije pronađen';
     $_SESSION['message'] = 1;
-    header("location: /apartmaniAdmin/login.php");
+    header("location: " . ROOTPATH . "/login.php");
 }
 
 

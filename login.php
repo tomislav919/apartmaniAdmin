@@ -1,5 +1,6 @@
+<?php require "bootstrap.php"; ?>
+<?php include('include/sessionMessage.php'); ?>
 <!DOCTYPE html>
-<?php require "../bootstrap.php"; ?>
 <html>
 <head>
   <meta charset="utf-8">
@@ -19,7 +20,7 @@
   <link rel="stylesheet" href="<?=ROOTPATH?>/css/custom.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <?php include('include/sessionMessage.php'); ?>
+
 </head>
 <body class="hold-transition login-page">
 
