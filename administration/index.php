@@ -91,7 +91,7 @@
                   </div>
                   <!-- /btn-group -->
                   <div class="input-group">
-                    <input id="new-event" type="text" class="form-control" placeholder="Event Title">
+                    <input id="new-event" type="text" class="form-control" placeholder="Reservation Title">
 
                     <div class="input-group-append">
                       <button id="add-new-event" type="button" class="btn btn-primary">Add</button>

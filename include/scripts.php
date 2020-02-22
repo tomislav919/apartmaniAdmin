@@ -245,6 +245,7 @@
             url: '<?=ROOTPATH?>/controllers/eventUpdate.php',
             type: 'POST',
             data: {
+              title: info.event.title,
               start: info.event.start.toISOString(),
               end: endEvent,
               id: info.event.id,
@@ -279,7 +280,7 @@
         $(info.el).on('click', function() {
           clickCnt++;
           if (clickCnt === 1) {
-            oneClickTimer = setTimeout(function() {
+            oneClickTimer = setTimeout(function() { // pokreni u slučaju jednog click-a
               clickCnt = 0;
               alert("You are about to DELETE reservation: " + info.event.title);
               if(confirm("Are you sure you want to DELETE: " + info.event.title)) {
@@ -305,19 +306,58 @@
                 });
               };
             }, 400);
-          } else if (clickCnt === 2) {
+          } else if (clickCnt === 2) { // pokreni u slucaju DOUBLE CLICK-a
             clearTimeout(oneClickTimer);
             clickCnt = 0;
-            alert('DOUBLE CLICK example value grab:' + info.event.start );
+            let newTitle = prompt('Enter the name for reservation:' + info.event.title, info.event.title);
+
+            let eventEnd = info.event.end;
+            if(info.event.end == null){
+              eventEnd = null;
+            } else {
+              eventEnd = eventNew.end.toISOString();
+            }
+
+
+            if(!(newTitle == false)){
+              $.ajax({
+                url: '<?=ROOTPATH?>/controllers/eventUpdate.php',
+                type: 'POST',
+                data: {
+                  title: newTitle,
+                  start: info.event.start.toISOString(),
+                  end: eventEnd,
+                  id: info.event.id,
+                  apartmentId: apartmentId,
+                },
+                success: function (res) {
+                  console.log('ajax je uspio');
+                  info.event.setProp('title', newTitle);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                  console.log(textStatus);
+                  console.log(errorThrown);
+                  console.log('Došlo je do errora u ajax-u');
+                  alert('Došlo je do greške spremanja rezervacije, molimo Vas da pokušate ponovno');
+                  location.reload(true); //refresh stranice tako da user primjeti da mu fali event, da nebi doslo do overbookinga
+                }
+              });
+            }
+
           }
         });
       },
 
 
       eventResize: function(info) { // Ovo se pokrene kada se eventu doda ili smanji broj dana
+/////////// TEST ZONA
 
+        console.log('tu sam');
+
+
+        ////////////// TEST ZONA END
         // Provjerava da li trenutni datum prelazi preko drugih datuma (napomena: moze ici na prvi dan slijedece rezervacije)
-        let arr = calendar.getEvents();
+        /*let arr = calendar.getEvents();
         let arrStart;
         let len = arr.length;
         let doAjax = true;
@@ -341,6 +381,7 @@
             url: '<?=ROOTPATH?>/controllers/eventUpdate.php',
             type: 'POST',
             data: {
+              title: info.event.title,
               start: info.event.start.toISOString(),
               end: info.event.end.toISOString(),
               id: info.event.id,
@@ -358,7 +399,7 @@
               location.reload(true); //refresh stranice tako da user primjeti da mu fali event, da nebi doslo do overbookinga
             }
           });
-        }
+        }*/
       }
     });
 
