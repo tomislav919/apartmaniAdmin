@@ -3216,7 +3216,7 @@ var Colorpicker = function () {
 }();
 
 /**
- * Colorpicker extension classes, indexed by extension name
+ * Colorpicker extension models, indexed by extension name
  *
  * @static
  * @type {Object} a map between the extension name and its class
@@ -4001,7 +4001,7 @@ var PopupHandler = function () {
 
     /**
      * Binds the different colorpicker elements to the focus/mouse/touch events so it reacts in order to show or
-     * hide the colorpicker popup accordingly. It also adds the proper classes.
+     * hide the colorpicker popup accordingly. It also adds the proper models.
      */
     value: function bind() {
       var cp = this.colorpicker;

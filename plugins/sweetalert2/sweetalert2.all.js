@@ -744,7 +744,7 @@ function renderButton(button, buttonType, params) {
   button.innerHTML = params[buttonType + 'ButtonText']; // Set caption text
 
   button.setAttribute('aria-label', params[buttonType + 'ButtonAriaLabel']); // ARIA label
-  // Add buttons custom classes
+  // Add buttons custom models
 
   button.className = swalClasses[buttonType];
   applyCustomClass(button, params.customClass, buttonType + 'Button');
@@ -2184,7 +2184,7 @@ function swalOpenAnimationFinished(popup, container) {
   container.style.overflowY = 'auto';
 }
 /**
- * Open popup, add necessary classes and styles, fix scrollbar
+ * Open popup, add necessary models and styles, fix scrollbar
  *
  * @param {Array} params
  */

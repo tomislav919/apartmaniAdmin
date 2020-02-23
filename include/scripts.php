@@ -161,7 +161,13 @@
              apartmentId: apartmentId,
            },
            success: function (data) {
-             location.reload(true); //ovo za sada mora bit, dok taj id ne rijesim
+             console.log(info.event.title);
+             console.log(info.event.start.toISOString());
+             console.log(info.event.end);
+             console.log(info.event.backgroundColor);
+             console.log(info.event.borderColor);
+             console.log(apartmentId);
+             //location.reload(true); //ovo za sada mora bit, dok taj id ne rijesim
              //console.log(data); //ID iz baze
              //info.event.id = data;
            },
@@ -276,7 +282,7 @@
         console.log('eventRecieve je aktiviran');
       },
 
-      eventRender: function(info) {
+      /*eventRender: function(info) {
         $(info.el).on('click', function() {
           clickCnt++;
           if (clickCnt === 1) {
@@ -346,18 +352,20 @@
 
           }
         });
+      },*/
+      eventClick:  function(info) {
+        $('#modalTitle').html(info.event.title);
+        $('#modalBody').html(info.event.extendedProps.description);
+        $('#eventUrl').attr('href',info.event.url);
+        $('#calendarModal').modal();
+        console.log(info);
       },
 
 
       eventResize: function(info) { // Ovo se pokrene kada se eventu doda ili smanji broj dana
-/////////// TEST ZONA
 
-        console.log('tu sam');
-
-
-        ////////////// TEST ZONA END
         // Provjerava da li trenutni datum prelazi preko drugih datuma (napomena: moze ici na prvi dan slijedece rezervacije)
-        /*let arr = calendar.getEvents();
+        let arr = calendar.getEvents();
         let arrStart;
         let len = arr.length;
         let doAjax = true;
@@ -399,7 +407,7 @@
               location.reload(true); //refresh stranice tako da user primjeti da mu fali event, da nebi doslo do overbookinga
             }
           });
-        }*/
+        }
       }
     });
 

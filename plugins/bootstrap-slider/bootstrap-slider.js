@@ -628,7 +628,7 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 			}
 
 			if (updateSlider === true) {
-				// Reset classes
+				// Reset models
 				this._removeClass(this.sliderElem, 'slider-horizontal');
 				this._removeClass(this.sliderElem, 'slider-vertical');
 				this._removeClass(this.sliderElem, 'slider-rtl');
@@ -650,7 +650,7 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 					this._removeProperty(handle, 'top');
 				}, this);
 
-				// Undo inline styles and classes on tooltips
+				// Undo inline styles and models on tooltips
 				[this.tooltip, this.tooltip_min, this.tooltip_max].forEach(function (tooltip) {
 					this._removeProperty(tooltip, 'left');
 					this._removeProperty(tooltip, 'right');
@@ -722,7 +722,7 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 			this.handle2 = sliderMaxHandle || this.handle2;
 
 			if (updateSlider === true) {
-				// Reset classes
+				// Reset models
 				this._removeClass(this.handle1, 'round triangle');
 				this._removeClass(this.handle2, 'round triangle hide');
 

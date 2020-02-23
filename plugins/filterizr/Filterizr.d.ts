@@ -5,7 +5,7 @@ import { Filter } from './ActiveFilter';
 import { RawOptions } from './FilterizrOptions/defaultOptions';
 export default class Filterizr {
     /**
-     * Main Filterizr classes exported as static members
+     * Main Filterizr models exported as static members
      */
     static FilterContainer: typeof FilterContainer;
     static FilterItem: typeof FilterItem;

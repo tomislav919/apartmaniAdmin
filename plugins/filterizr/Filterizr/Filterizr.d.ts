@@ -5,7 +5,7 @@ import FilterContainer from '../FilterContainer';
 import FilterItem from '../FilterItem';
 export default class Filterizr implements Destructible {
     /**
-     * Main Filterizr classes exported as static members
+     * Main Filterizr models exported as static members
      */
     static FilterContainer: typeof FilterContainer;
     static FilterItem: typeof FilterItem;

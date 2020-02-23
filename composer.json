@@ -27,7 +27,7 @@
   },
   "autoload": {
     "classmap": [
-      "classes"
+      "models"
     ]
   }
 }

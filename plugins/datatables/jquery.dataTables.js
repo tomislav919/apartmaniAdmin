@@ -1109,7 +1109,7 @@
 				];
 			}
 			
-			/* Remove row stripe classes if they are already on the table row */
+			/* Remove row stripe models if they are already on the table row */
 			var stripeClasses = oSettings.asStripeClasses;
 			var rowOne = $this.children('tbody').find('tr').eq(0);
 			if ( $.inArray( true, $.map( stripeClasses, function(el, i) {
@@ -1202,8 +1202,8 @@
 					}
 				}
 			
-				/* Do a first pass on the sorting classes (allows any size changes to be taken into
-				 * account, and also will apply sorting disabled classes if disabled
+				/* Do a first pass on the sorting models (allows any size changes to be taken into
+				 * account, and also will apply sorting disabled models if disabled
 				 */
 				_fnSortingClasses( oSettings );
 			
@@ -1986,7 +1986,7 @@
 		var searchCols = oSettings.aoPreSearchCols;
 		searchCols[ iCol ] = $.extend( {}, DataTable.models.oSearch, searchCols[ iCol ] );
 	
-		// Use the default column options function to initialise classes etc
+		// Use the default column options function to initialise models etc
 		_fnColumnOptions( oSettings, iCol, $(nTh).data() );
 	}
 	
@@ -3169,7 +3169,7 @@
 			}
 	
 			if ( data.DT_RowClass ) {
-				// Remove any classes added by DT_RowClass before
+				// Remove any models added by DT_RowClass before
 				var a = data.DT_RowClass.split(' ');
 				row.__rowc = row.__rowc ?
 					_unique( row.__rowc.concat( a ) ) :
@@ -3246,7 +3246,7 @@
 		/* ARIA role for the rows */
 	 	$(thead).find('>tr').attr('role', 'row');
 	
-		/* Deal with the footer - add classes if required */
+		/* Deal with the footer - add models if required */
 		$(thead).find('>tr>th, >tr>td').addClass( classes.sHeaderTH );
 		$(tfoot).find('>tr>th, >tr>td').addClass( classes.sFooterTH );
 	
@@ -3450,7 +3450,7 @@
 	
 				var nRow = aoData.nTr;
 	
-				/* Remove the old striping classes and then add the new one */
+				/* Remove the old striping models and then add the new one */
 				if ( iStripes !== 0 )
 				{
 					var sStripe = asStripeClasses[ iRowCount % iStripes ];
@@ -6215,7 +6215,7 @@
 	
 	
 	/**
-	 * Set the sorting classes on table's body, Note: it is safe to call this function
+	 * Set the sorting models on table's body, Note: it is safe to call this function
 	 * when bSort and bSortClasses are false
 	 *  @param {object} oSettings dataTables settings object
 	 *  @memberof DataTable#oApi
@@ -6229,7 +6229,7 @@
 		var i, ien, colIdx;
 	
 		if ( features.bSort && features.bSortClasses ) {
-			// Remove old sorting classes
+			// Remove old sorting models
 			for ( i=0, ien=oldSort.length ; i<ien ; i++ ) {
 				colIdx = oldSort[i].src;
 	
@@ -9394,7 +9394,7 @@
 			jqTbody.children().detach();
 			jqTbody.append( rows );
 	
-			// Remove the DataTables generated nodes, events and classes
+			// Remove the DataTables generated nodes, events and models
 			var removedMethod = remove ? 'remove' : 'detach';
 			jqTable[ removedMethod ]();
 			jqWrapper[ removedMethod ]();
@@ -9410,9 +9410,9 @@
 					.css( 'width', settings.sDestroyWidth )
 					.removeClass( classes.sTable );
 	
-				// If the were originally stripe classes - then we add them back here.
+				// If the were originally stripe models - then we add them back here.
 				// Note this is not fool proof (for example if not all rows had stripe
-				// classes - but it's a good effort without getting carried away
+				// models - but it's a good effort without getting carried away
 				ien = settings.asDestroyStripes.length;
 	
 				if ( ien ) {
@@ -10092,7 +10092,7 @@
 		 * As a function, making the Ajax call is left up to yourself allowing
 		 * complete control of the Ajax request. Indeed, if desired, a method other
 		 * than Ajax could be used to obtain the required data, such as Web storage
-		 * or an AIR database.
+		 * or an AIR migrations.
 		 *
 		 * The function is given four parameters and no return is required. The
 		 * parameters are:
@@ -10281,7 +10281,7 @@
 	
 	
 		/**
-		 * An array of CSS classes that should be applied to displayed rows. This
+		 * An array of CSS models that should be applied to displayed rows. This
 		 * array may be of any length, and DataTables will apply each class
 		 * sequentially, looping when required.
 		 *  @type array
@@ -10618,10 +10618,10 @@
 	
 	
 		/**
-		 * Enable or disable the addition of the classes `sorting\_1`, `sorting\_2` and
+		 * Enable or disable the addition of the models `sorting\_1`, `sorting\_2` and
 		 * `sorting\_3` to the columns which are currently being sorted on. This is
 		 * presented as a feature switch as it can increase processing time (while
-		 * classes are removed and added) so for large data sets you might want to
+		 * models are removed and added) so for large data sets you might want to
 		 * turn this off.
 		 *  @type boolean
 		 *  @default true
@@ -10667,7 +10667,7 @@
 		/**
 		 * This function is called when a TR element is created (and all TD child
 		 * elements have been inserted), or registered if using a DOM source, allowing
-		 * manipulation of the TR element (adding classes etc).
+		 * manipulation of the TR element (adding models etc).
 		 *  @type function
 		 *  @param {node} row "TR" element for the current row
 		 *  @param {array} data Raw data array for this row
@@ -10922,7 +10922,7 @@
 		 * This parameter allows you to override the default function which obtains
 		 * the data from the server so something more suitable for your application.
 		 * For example you could use POST data, or pull information from a Gears or
-		 * AIR database.
+		 * AIR migrations.
 		 *  @type function
 		 *  @member
 		 *  @param {string} source HTTP source to obtain the data from (`ajax`)
@@ -10971,7 +10971,7 @@
 		/**
 		 * Load the table state. With this function you can define from where, and how, the
 		 * state of a table is loaded. By default DataTables will load from `localStorage`
-		 * but you might wish to use a server-side database or cookies.
+		 * but you might wish to use a server-side migrations or cookies.
 		 *  @type function
 		 *  @member
 		 *  @param {object} settings DataTables settings object
@@ -11074,7 +11074,7 @@
 		/**
 		 * Save the table state. This function allows you to define where and how the state
 		 * information for the table is stored By default DataTables will use `localStorage`
-		 * but you might wish to use a server-side database or cookies.
+		 * but you might wish to use a server-side migrations or cookies.
 		 *  @type function
 		 *  @member
 		 *  @param {object} settings DataTables settings object
@@ -11267,7 +11267,7 @@
 	
 		/**
 		 * Classes that DataTables assigns to the various components and features
-		 * that it adds to the HTML table. This allows classes to be configured
+		 * that it adds to the HTML table. This allows models to be configured
 		 * during initialisation in addition to through the static
 		 * {@link DataTable.ext.oStdClasses} object).
 		 *  @namespace
@@ -11876,8 +11876,8 @@
 		 *     </li>
 		 *     <li>The following constants are allowed:
 		 *       <ul>
-		 *         <li>'H' - jQueryUI theme "header" classes ('fg-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix')</li>
-		 *         <li>'F' - jQueryUI theme "footer" classes ('fg-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix')</li>
+		 *         <li>'H' - jQueryUI theme "header" models ('fg-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix')</li>
+		 *         <li>'F' - jQueryUI theme "footer" models ('fg-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix')</li>
 		 *       </ul>
 		 *     </li>
 		 *     <li>The following syntax is expected:
@@ -12746,7 +12746,7 @@
 		/**
 		 * This parameter is only used in DataTables' server-side processing. It can
 		 * be exceptionally useful to know what columns are being displayed on the
-		 * client side, and to map these to database fields. When defined, the names
+		 * client side, and to map these to migrations fields. When defined, the names
 		 * also allow DataTables to reorder information from the server if it comes
 		 * back in an unexpected order (i.e. if you switch your columns around on the
 		 * client-side, your server-side code does not also need updating).
@@ -13315,7 +13315,7 @@
 		"asStripeClasses": null,
 	
 		/**
-		 * If restoring a table - we should restore its striping classes as well
+		 * If restoring a table - we should restore its striping models as well
 		 *  @type array
 		 *  @default []
 		 */
@@ -13697,7 +13697,7 @@
 		"_iRecordsDisplay": 0,
 	
 		/**
-		 * The classes to use for the table
+		 * The models to use for the table
 		 *  @type object
 		 *  @default {}
 		 */
@@ -14418,7 +14418,7 @@
 		"sPageButtonActive": "current",
 		"sPageButtonDisabled": "disabled",
 	
-		/* Striping classes */
+		/* Striping models */
 		"sStripeOdd": "odd",
 		"sStripeEven": "even",
 	

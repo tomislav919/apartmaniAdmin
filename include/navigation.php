@@ -77,7 +77,7 @@
           <a href="<?=ROOTPATH?>/apartments/index.php" id="ap0" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
-              Svi apartmani
+              All apartments
               <span class="badge badge-info right"></span>
             </p>
           </a>

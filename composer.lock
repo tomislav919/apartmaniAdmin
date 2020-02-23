@@ -75,7 +75,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v6.13.1",
+            "version": "v6.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -119,16 +119,16 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v6.13.1",
+            "version": "v6.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "f1326dfae72c646a8598138b446347954f5e991e"
+                "reference": "a6c7ef89684ce0e724b42c6bfe4b1107aee28a1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/f1326dfae72c646a8598138b446347954f5e991e",
-                "reference": "f1326dfae72c646a8598138b446347954f5e991e",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/a6c7ef89684ce0e724b42c6bfe4b1107aee28a1d",
+                "reference": "a6c7ef89684ce0e724b42c6bfe4b1107aee28a1d",
                 "shasum": ""
             },
             "require": {
@@ -159,20 +159,20 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "https://laravel.com",
-            "time": "2020-01-07T13:47:03+00:00"
+            "time": "2020-02-08T09:26:21+00:00"
         },
         {
             "name": "illuminate/database",
-            "version": "v6.13.1",
+            "version": "v6.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "a5e0f20e4070a2ea3719a86bf2df2a413f8fbfe1"
+                "reference": "f56c632e93e7ae8f675d5fd0d0b3b0a9eede1d22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/a5e0f20e4070a2ea3719a86bf2df2a413f8fbfe1",
-                "reference": "a5e0f20e4070a2ea3719a86bf2df2a413f8fbfe1",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/f56c632e93e7ae8f675d5fd0d0b3b0a9eede1d22",
+                "reference": "f56c632e93e7ae8f675d5fd0d0b3b0a9eede1d22",
                 "shasum": ""
             },
             "require": {
@@ -219,20 +219,20 @@
                 "orm",
                 "sql"
             ],
-            "time": "2020-01-28T16:17:59+00:00"
+            "time": "2020-02-18T15:08:16+00:00"
         },
         {
             "name": "illuminate/support",
-            "version": "v6.13.1",
+            "version": "v6.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "c6bcd329fd8c7c46908f1af7f99dae164a4065a1"
+                "reference": "2f5f449750e6821f2d8c4e993a4ff77c7d7d5cc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/c6bcd329fd8c7c46908f1af7f99dae164a4065a1",
-                "reference": "c6bcd329fd8c7c46908f1af7f99dae164a4065a1",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/2f5f449750e6821f2d8c4e993a4ff77c7d7d5cc8",
+                "reference": "2f5f449750e6821f2d8c4e993a4ff77c7d7d5cc8",
                 "shasum": ""
             },
             "require": {
@@ -280,20 +280,20 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2020-01-28T14:36:33+00:00"
+            "time": "2020-02-14T14:20:14+00:00"
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.29.1",
+            "version": "2.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "e509be5bf2d703390e69e14496d9a1168452b0a2"
+                "reference": "912dff66d2690ca66abddb9b291a1df5f371d3b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/e509be5bf2d703390e69e14496d9a1168452b0a2",
-                "reference": "e509be5bf2d703390e69e14496d9a1168452b0a2",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/912dff66d2690ca66abddb9b291a1df5f371d3b4",
+                "reference": "912dff66d2690ca66abddb9b291a1df5f371d3b4",
                 "shasum": ""
             },
             "require": {
@@ -350,7 +350,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2020-01-21T09:36:43+00:00"
+            "time": "2020-02-07T15:25:46+00:00"
         },
         {
             "name": "psr/container",
@@ -451,16 +451,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.13.1",
+            "version": "v1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "7b4aab9743c30be783b73de055d24a39cf4b954f"
+                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7b4aab9743c30be783b73de055d24a39cf4b954f",
-                "reference": "7b4aab9743c30be783b73de055d24a39cf4b954f",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/34094cfa9abe1f0f14f48f490772db7a775559f2",
+                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2",
                 "shasum": ""
             },
             "require": {
@@ -472,7 +472,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13-dev"
+                    "dev-master": "1.14-dev"
                 }
             },
             "autoload": {
@@ -506,11 +506,11 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-11-27T14:18:11+00:00"
+            "time": "2020-01-13T11:15:53+00:00"
         },
         {
             "name": "symfony/translation",
-            "version": "v5.0.3",
+            "version": "v5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",

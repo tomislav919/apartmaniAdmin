@@ -1017,7 +1017,7 @@ $.extend( Scroller.prototype, {
 				}
 			}
 			else if ( iTopRow % 2 !== 0 ) {
-				// For the row-striping classes (odd/even) we want only to start
+				// For the row-striping models (odd/even) we want only to start
 				// on evens otherwise the stripes will change between draws and
 				// look rubbish
 				iTopRow++;

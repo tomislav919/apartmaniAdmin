@@ -185,7 +185,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 				var context = this.context;
 
 				// If the font was provided as CSS, create a div with those
-				// classes and examine it to generate a canvas font spec.
+				// models and examine it to generate a canvas font spec.
 
 				if (typeof font !== "object") {
 

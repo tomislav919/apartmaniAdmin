@@ -6,7 +6,7 @@ class Event extends Eloquent
 
   public static function getForApartment ($apartmentId)
   {
-    $events = Event::select('id', 'title', 'start', 'end', 'backgroundColor', 'borderColor')->where('apartment_id', '=', $apartmentId)->get()->toArray();
+    $events = Event::select('id', 'title', 'start', 'end', 'backgroundColor', 'borderColor', 'comment')->where('apartment_id', '=', $apartmentId)->get()->toArray();
 
     //Adding text color to events (white) and allDay option
     $i = 0;
@@ -14,7 +14,8 @@ class Event extends Eloquent
     {
       $events[$i]['textColor'] = 'rgb(255, 255, 255)';
       $events[$i]['allDay'] = true;
-      $events[$i]['description'] = 'neki random komentar';
+      $events[$i]['extendedProp']['idFromDB'] = $event['id'];
+      $events[$i]['description'] = $event['comment'];
 
       $i++;
     }
@@ -50,7 +51,7 @@ class Event extends Eloquent
           break;
 
         case 4:
-          $events[$i]['title'] = $events[$i]['title'] . ' (Apartment 4)';
+          $events[$i]['title'] = $events[$i]['title'] . ' (Studio)';
           $events[$i]['backgroundColor'] = '#006633';
           $events[$i]['borderColor'] = '#006633';
           break;

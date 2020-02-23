@@ -88,10 +88,10 @@ class ComposerStaticInitb322180b12dcb4ec2c1f208fc394bdc1
     );
 
     public static $classMap = array (
-        'Apartment' => __DIR__ . '/../..' . '/classes/Apartment.php',
-        'Calendar' => __DIR__ . '/../..' . '/classes/Calendar.php',
-        'Event' => __DIR__ . '/../..' . '/classes/Event.php',
-        'User' => __DIR__ . '/../..' . '/classes/User.php',
+        'Apartment' => __DIR__ . '/../..' . '/models/Apartment.php',
+        'Calendar' => __DIR__ . '/../..' . '/models/Calendar.php',
+        'Event' => __DIR__ . '/../..' . '/models/Event.php',
+        'User' => __DIR__ . '/../..' . '/models/User.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -1147,9 +1147,9 @@ $.extend( FixedColumns.prototype , {
 		}
 		else
 		{
-			/* To ensure that we copy cell classes exactly, regardless of colspan, multiple rows
+			/* To ensure that we copy cell models exactly, regardless of colspan, multiple rows
 			 * etc, we make a copy of the header from the DataTable again, but don't insert the
-			 * cloned cells, just copy the classes across. To get the matching layout for the
+			 * cloned cells, just copy the models across. To get the matching layout for the
 			 * fixed component, we use the DataTables _fnDetectHeader method, allowing 1:1 mapping
 			 */
 			aoCloneLayout = this._fnCopyLayout( dt.aoHeader, aiColumns, false );

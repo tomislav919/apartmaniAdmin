@@ -464,14 +464,14 @@ $.Widget.prototype = {
 
 			// We are doing this to create a new jQuery object because the _removeClass() call
 			// on the next line is going to destroy the reference to the current elements being
-			// tracked. We need to save a copy of this collection so that we can add the new classes
+			// tracked. We need to save a copy of this collection so that we can add the new models
 			// below.
 			elements = $( currentElements.get() );
 			this._removeClass( currentElements, classKey );
 
-			// We don't use _addClass() here, because that uses this.options.classes
-			// for generating the string of classes. We want to use the value passed in from
-			// _setOption(), this is the new value of the classes option which was passed to
+			// We don't use _addClass() here, because that uses this.options.models
+			// for generating the string of models. We want to use the value passed in from
+			// _setOption(), this is the new value of the models option which was passed to
 			// _setOption(). We pass this value directly to _classes().
 			elements.addClass( this._classes( {
 				element: elements,
@@ -4742,8 +4742,8 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		this.active = clickedIsActive ? $() : clicked;
 		this._toggle( eventData );
 
-		// Switch classes
-		// corner classes on the previously active header stay after the animation
+		// Switch models
+		// corner models on the previously active header stay after the animation
 		this._removeClass( active, "ui-accordion-header-active", "ui-state-active" );
 		if ( options.icons ) {
 			activeChildren = active.children( ".ui-accordion-header-icon" );
@@ -14381,7 +14381,7 @@ var widgetsSelectmenu = $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 		this.button.attr( "aria-expanded", this.isOpen );
 
 		// We can't use two _toggleClass() calls here, because we need to make sure
-		// we always remove classes first and add them second, otherwise if both classes have the
+		// we always remove models first and add them second, otherwise if both models have the
 		// same theme class, it will be removed after we add it.
 		this._removeClass( this.button, "ui-selectmenu-button-" +
 			( this.isOpen ? "closed" : "open" ) )
@@ -16973,7 +16973,7 @@ $.widget( "ui.spinner", {
 				}
 			} );
 
-		// TODO: Right now button does not support classes this is already updated in button PR
+		// TODO: Right now button does not support models this is already updated in button PR
 		this._removeClass( this.buttons, "ui-corner-all" );
 
 		this._addClass( this.buttons.first(), "ui-spinner-button ui-spinner-up" );

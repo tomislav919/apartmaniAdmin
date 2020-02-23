@@ -530,7 +530,7 @@ function info ( api )
 function init ( ctx ) {
 	var api = new DataTable.Api( ctx );
 
-	// Row callback so that classes can be added to rows and cells if the item
+	// Row callback so that models can be added to rows and cells if the item
 	// was selected before the element was created. This will happen with the
 	// `deferRender` option enabled.
 	// 

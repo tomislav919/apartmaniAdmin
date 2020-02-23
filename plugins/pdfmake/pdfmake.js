@@ -13347,7 +13347,7 @@ function maybeReadMore_(stream, state) {
   state.readingMore = false;
 }
 
-// abstract method.  to be overridden in specific implementation classes.
+// abstract method.  to be overridden in specific implementation models.
 // call cb(er, data) where data is <= n in length.
 // for virtual (non-string, non-buffer) streams, "length" is somewhat
 // arbitrary, and perhaps not very meaningful.
@@ -13963,7 +13963,7 @@ module.exports = {
 // Here's how this works:
 //
 // The Transform stream has all the aspects of the readable and writable
-// stream classes.  When you write(chunk), that calls _write(chunk,cb)
+// stream models.  When you write(chunk), that calls _write(chunk,cb)
 // internally, and returns false if there's a lot of pending writes
 // buffered up.  When you call read(), that calls _read(n) until
 // there's enough pending readable data buffered up.
@@ -14079,7 +14079,7 @@ Transform.prototype.push = function (chunk, encoding) {
 };
 
 // This is the part where you do stuff!
-// override this function in implementation classes.
+// override this function in implementation models.
 // 'chunk' is an input chunk.
 //
 // Call `push(newChunk)` to pass along transformed output
@@ -42422,7 +42422,7 @@ var AATStateMachine = function () {
 
     var row = stateArray.getItem(state);
 
-    // Skip predefined classes
+    // Skip predefined models
     for (var classCode = 4; classCode < nClasses; classCode++) {
       var entryIndex = row[classCode];
       var entry = entryTable.getItem(entryIndex);
@@ -43410,7 +43410,7 @@ var STATE_TABLE = [
 
 /**
  * This is a shaper for Arabic, and other cursive scripts.
- * It uses data from ArabicShaping.txt in the Unicode database,
+ * It uses data from ArabicShaping.txt in the Unicode migrations,
  * compiled to a UnicodeTrie by generate-data.coffee.
  *
  * The shaping state machine was ported from Harfbuzz.
@@ -47033,7 +47033,7 @@ var LayoutEngine = function () {
   };
 
   LayoutEngine.prototype.isDefaultIgnorable = function isDefaultIgnorable(ch) {
-    // From DerivedCoreProperties.txt in the Unicode database,
+    // From DerivedCoreProperties.txt in the Unicode migrations,
     // minus U+115F, U+1160, U+3164 and U+FFA0, which is what
     // Harfbuzz and Uniscribe do.
     var plane = ch >> 16;
@@ -62008,7 +62008,7 @@ function () {
       if (this.curClass === BK || this.curClass === CR && this.nextClass !== LF) {
         this.curClass = mapFirst(mapClass(this.nextClass));
         return new Break(this.lastPos, true);
-      } // handle classes not handled by the pair table
+      } // handle models not handled by the pair table
 
 
       var cur = void 0;
@@ -62105,7 +62105,7 @@ module.exports = LineBreaker;
 "use strict";
 
 
-// The following break classes are handled by the pair table
+// The following break models are handled by the pair table
 exports.OP = 0; // Opening punctuation
 
 exports.CL = 1; // Closing punctuation
@@ -62163,7 +62163,7 @@ exports.JV = 26; // Hangul V Jamo
 exports.JT = 27; // Hangul T Jamo
 
 exports.RI = 28; // Regional Indicator
-// The following break classes are not handled by the pair table
+// The following break models are not handled by the pair table
 
 exports.AI = 29; // Ambiguous (Alphabetic or Ideograph)
 

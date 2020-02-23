@@ -3238,14 +3238,14 @@
                             //clear size observer
                             _sizeObserverElement.children().remove();
                             
-                            //remove the style property and classes from already generated elements
+                            //remove the style property and models from already generated elements
                             each([ _paddingElement, _viewportElement, _contentElement, _textareaCoverElement ], function(i, elm) { 
                                 if(elm) {
                                     removeClass(elm.removeAttr(LEXICON.s), _classNamesDynamicDestroy);
                                 }
                             });
                             
-                            //add classes to the host element which was removed previously to match the expected DOM
+                            //add models to the host element which was removed previously to match the expected DOM
                             addClass(_hostElement, _isTextarea ? _classNameHostTextareaElement : _classNameHostElement);
                         }
                         else {
@@ -4261,7 +4261,7 @@
                 }
 
                 /**
-                 * Generates a string which represents a HTML div with the given classes or attributes.
+                 * Generates a string which represents a HTML div with the given models or attributes.
                  * @param classesOrAttrs The class of the div as string or a object which represents the attributes of the div. (The class attribute can also be written as "className".)
                  * @param content The content of the div as string.
                  * @returns {string} The concated string which represents a HTML div and its content.
