@@ -10,7 +10,7 @@ $event = Event::Create([
     'borderColor' => $_POST['borderColor'],
     'calendar_id' => 1,
     'apartment_id' => $_POST['apartmentId'],
-    'allDay' => null
+    'allDay' => true
 ]);
 
 $data = $event->id;

@@ -12,6 +12,7 @@ Capsule::schema()->create('events', function ($table) {
   $table->string('start');
   $table->string('end')->nullable();
   $table->string('allDay')->nullable();
+  $table->string('textColor')->nullable();
   $table->string('backgroundColor');
   $table->string('borderColor');
   $table->rememberToken();
