@@ -145,14 +145,15 @@
               break;
             }
           } else {
-            console.log('Datum okej');
+            console.log('Date ok');
           }
         }
        if (doAjax == true){
          $.ajax({
-           url: '<?=ROOTPATH?>/controllers/eventCreate.php',
+           url: '<?=ROOTPATH?>/controllers/handlers/eventHandler.php',
            type: 'POST',
            data: {
+             methodName: 'createEvent',
              title: info.event.title,
              start: info.event.start.toISOString(),
              end: info.event.end,
@@ -161,12 +162,13 @@
              apartmentId: apartmentId,
            },
            success: function (data) {
-             console.log(info.event.title);
-             console.log(info.event.start.toISOString());
-             console.log(info.event.end);
-             console.log(info.event.backgroundColor);
-             console.log(info.event.borderColor);
-             console.log(apartmentId);
+             data = JSON.parse(data);
+             if (data.result == 'event created' ){
+               console.log('Event created!');
+             } else {
+               alert('Rezervacija nije zapisana u bazu, pokušajte ponovno, ako se greška nastavi javljati kontaktirajte administratora!');
+               location.reload(true);
+             }
              //location.reload(true); //ovo za sada mora bit, dok taj id ne rijesim
              //console.log(data); //ID iz baze
              //info.event.id = data;
@@ -235,10 +237,8 @@
               doAjax = false;
               break;
             }
-
-
           } else {
-            console.log('Datum okej');
+            console.log('Date ok');
           }
         }
 
@@ -248,17 +248,24 @@
 
         if(doAjax == true){
           $.ajax({
-            url: '<?=ROOTPATH?>/controllers/eventUpdate.php',
+            url: '<?=ROOTPATH?>/controllers/handlers/eventHandler.php',
             type: 'POST',
             data: {
+              methodName: 'eventUpdate',
               title: info.event.title,
               start: info.event.start.toISOString(),
               end: endEvent,
               id: info.event.id,
               apartmentId: apartmentId,
             },
-            success: function (res) {
-              console.log('ajax je uspio');
+            success: function (data) {
+              data = JSON.parse(data);
+              if (data == 'event updated' ){
+                console.log('Event updated!');
+              } else {
+                alert('Rezervacija nije zapisana u bazu, pokušajte ponovno, ako se greška nastavi javljati kontaktirajte administratora!');
+                location.reload(true);
+              }
             },
             error: function (jqXHR, textStatus, errorThrown) {
               console.log(textStatus);
@@ -386,17 +393,24 @@
 
         if(doAjax == true){
           $.ajax({
-            url: '<?=ROOTPATH?>/controllers/eventUpdate.php',
+            url: '<?=ROOTPATH?>/controllers/handlers/eventHandler.php',
             type: 'POST',
             data: {
+              methodName: 'eventUpdate',
               title: info.event.title,
               start: info.event.start.toISOString(),
               end: info.event.end.toISOString(),
               id: info.event.id,
               apartmentId: apartmentId,
             },
-            success: function (res) {
-              console.log('ajax je uspio');
+            success: function (data) {
+              data = JSON.parse(data);
+              if (data == 'event updated' ){
+                console.log('Event updated!');
+              } else {
+                alert('Rezervaciji nije promijenjen datum, pokušajte ponovno, ako se greška nastavi javljati kontaktirajte administratora!');
+                location.reload(true);
+              }
 
             },
             error: function (jqXHR, textStatus, errorThrown) {

@@ -2,7 +2,7 @@
 use Illuminate\Database\Eloquent\Model as Eloquent;
 class Event extends Eloquent
 {
-  protected $fillable = ['title', 'comment', 'start', 'end', 'allDay', 'backgroundColor', 'borderColor', 'calendar_id', 'apartment_id'];
+  protected $fillable = ['title', 'comment', 'start', 'end', 'allDay', 'backgroundColor', 'borderColor', 'calendar_id', 'apartment_id', 'textColor', 'description'];
 
   public static function getForApartment ($apartmentId)
   {
