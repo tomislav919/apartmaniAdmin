@@ -33,7 +33,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="<?=ROOTPATH?>/controllers/loginCheck.php" method="post">
+      <form action="<?=ROOTPATH?>/include/loginCheck.php" method="post">
         <div class="input-group mb-3">
           <input name="name" type="name" class="form-control" placeholder="Username">
           <div class="input-group-append">
