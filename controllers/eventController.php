@@ -44,11 +44,10 @@ class eventController
 
     public function eventUpdateDescription($req)
     {
-        Event::find($req['id'])
+        Event::where('id', '=', $req['id'])
           ->update([
             'title' => $req['title'],
             'description' => $req['description'],
-            'end' => $req['end'],
           ]);
 
         return 'event updated';

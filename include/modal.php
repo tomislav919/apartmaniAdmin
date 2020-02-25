@@ -21,7 +21,7 @@
       </div>
       <div class="modal-footer">
         <button id="deleteButton" type="button" class="btn btn-danger mr-auto">Delete Reservation</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="closeButton" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button id="saveButton" type="button" class="btn btn-primary">Save Changes</button>
       </div>
     </div>

@@ -1,5 +1,6 @@
 DATABASE
-- dodati u apartments db -> backgroundColor, borderColor
+- dodati u apartments db -> backgroundColor, borderColor (#007BFF, #FF3333, #330000, #006633, #9933FF)
 - DB comment promijeniti u description
 - allDay dodati true tj napraviti update na sve kolone --> UPDATE `events` SET `allDay` = 'true'
 - dodati textColor u events i update kolone na 'rgb(255, 255, 255)' --> UPDATE `events` SET `textColor` = 'rgb(255, 255, 255)'
+
