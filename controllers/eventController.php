@@ -38,6 +38,19 @@ class eventController
             'start' => $req['start'],
             'end' => $req['end'],
           ]);
+
+        return 'event updated';
+    }
+
+    public function eventUpdateDescription($req)
+    {
+        Event::find($req['id'])
+          ->update([
+            'title' => $req['title'],
+            'description' => $req['description'],
+            'end' => $req['end'],
+          ]);
+
         return 'event updated';
     }
 }

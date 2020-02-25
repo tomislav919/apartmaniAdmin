@@ -164,7 +164,7 @@
            success: function (data) {
              data = JSON.parse(data);
              if (data.result == 'event created' ){
-               console.log('Event created!');
+               info.event.setExtendedProp('idFromDB', data.id);
              } else {
                alert('Rezervacija nije zapisana u bazu, pokušajte ponovno, ako se greška nastavi javljati kontaktirajte administratora!');
                location.reload(true);
@@ -195,7 +195,7 @@
 
         //ovaj dio je dodan jer iz nekog razloga ovdje info.event.end.toISOString() ne radi, ali kad ga dodijelim novoj varijabli najnormalnije funkcionira
         var endEvent;
-        var eventNew = calendar.getEventById(info.event.id);
+        var eventNew = calendar.getEventById(info.event.extendedProps.idFromDB);
 
         if(info.event.end == null){
           endEvent = null;
@@ -255,7 +255,7 @@
               title: info.event.title,
               start: info.event.start.toISOString(),
               end: endEvent,
-              id: info.event.id,
+              id: info.event.extendedProps.idFromDB,
               apartmentId: apartmentId,
             },
             success: function (data) {
@@ -360,12 +360,71 @@
           }
         });
       },*/
-      eventClick:  function(info) {
+      eventClick:  function(info) { //Modal options
         $('#modalTitle').html(info.event.title);
         $('#modalBody').html(info.event.extendedProps.description);
-        $('#eventUrl').attr('href',info.event.url);
         $('#calendarModal').modal();
-        console.log(info);
+
+        //function for delete button
+        $('#deleteButton').unbind( "click" ).click(function(){
+          if(confirm("Are you sure you want to DELETE reservation: " + info.event.title + info.event.extendedProps.idFromDB)) {
+
+            $('#calendarModal').modal('hide');
+            $.ajax({
+              url: '<?=ROOTPATH?>/controllers/handlers/eventHandler.php',
+              type: 'POST',
+              data: {
+                methodName: 'eventDelete',
+                id: info.event.extendedProps.idFromDB
+              },
+              success: function (res) {
+                info.event.remove();
+                console.log('ajax je uspio, event obrisan');
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus);
+                console.log(errorThrown);
+                console.log('Došlo je do errora u ajax-u');
+                alert('Došlo je do greške kod brisanja rezervacije, molimo Vas da pokušate ponovno');
+                location.reload(true); // Refresh stranice tako da user primjeti da mu fali event, da nebi doslo do overbookinga
+              }
+            });
+          }
+        });
+
+        //function for save button
+        $('#saveButton').unbind( "click" ).click(function(){
+
+            $('#calendarModal').modal('hide');
+            let newTitle = $('textarea#modalTitle').val();
+            let newDescription = $('textarea#modalBody').val();
+            console.log(newTitle);
+            console.log(newDescription);
+            info.event.setExtendedProp('description', newDescription);
+          console.log(info);
+
+            /*$.ajax({
+              url: '<?=ROOTPATH?>/controllers/handlers/eventHandler.php',
+              type: 'POST',
+              data: {
+                methodName: 'eventUpdate',
+                id: info.event.extendedProps.idFromDB,
+                title: newTitle,
+                description: newDescription
+              },
+              success: function (res) {
+                console.log('ajax je uspio, event obrisan');
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus);
+                console.log(errorThrown);
+                console.log('Došlo je do errora u ajax-u');
+                alert('Došlo je do greške kod brisanja rezervacije, molimo Vas da pokušate ponovno');
+                location.reload(true); // Refresh stranice tako da user primjeti da mu fali event, da nebi doslo do overbookinga
+              }
+            });*/
+
+        });
       },
 
 
@@ -387,7 +446,7 @@
               break;
             }
           } else {
-            console.log('Datum okej');
+            console.log('Datum ok');
           }
         }
 
@@ -400,7 +459,7 @@
               title: info.event.title,
               start: info.event.start.toISOString(),
               end: info.event.end.toISOString(),
-              id: info.event.id,
+              id: info.event.extendedProps.idFromDB,
               apartmentId: apartmentId,
             },
             success: function (data) {
@@ -468,53 +527,3 @@
     })
   })
 </script>
-<!--
-//rijesit problem location.reload-a u prvom ajax pozivu uz pomoc data_parent_id koji je id eventa iz baze
-eventRender: function (arg) {
-
-
-              var photo = '<i class="far fa-clock edu-danger-error admin-check-pro" aria-hidden="true"></i>';
-              var user_name = '';
-              var has_class = '';
-
-              if(!arg.event.extendedProps.user=='')
-              {
-                /*
-                ovo ne brisat, ovako nekako bi trebalo funkcionirat kad bude delalo ćo
-                photo = '<img class="img-event" src="../../slike_burza_m/avatari/mini-'+arg.event.extendedProps.user.profil_slika+'">';
-                user_name = arg.event.extendedProps.user.name + '<br>';
-                has_class = 'has-band';
-                */
-
-                has_class = 'has-band';
-                switch (arg.event.extendedProps.user.user_id) {
-                    case 1:
-                        user_name = 'Mamut' + '<br>';
-                        photo = '<img class="img-event" src="https://jammeet.com/slike_burza_m/avatari/mini-15573476095jpg.jpg">';
-                        break;
-                    case 2:
-                        user_name = 'Asheraah' + '<br>';
-                        photo = '<img class="img-event" src="https://jammeet.com/slike_burza_m/avatari/mini-15582820425732622224826114684382838836574265793839104ojpg.jpg">';
-                        break;
-                    case 3:
-                        user_name = 'Sillycons' + '<br>';
-                        photo = '<img class="img-event" src="https://jammeet.com/slike_burza_m/avatari/mini-1555932601coverjpg.jpg">';
-                        break;
-                }
-              }
-
-              arg.el.innerHTML =
-                '<div class="fc-content '+has_class+'">'+
-                  '<div class="div-left">'+
-                    photo+
-                  '</div>'+
-                  '<div class="div-right">'+
-                      '<p>' + user_name + arg.event.title + '</p>'+
-                  '</div>'+
-                  '<i class="delete-event fa fa-times edu-danger-error admin-check-pro" aria-hidden="true" data-parent_id ="'+arg.event.extendedProps.termin_id+'" data-id="'+arg.event.id+'" data-startdate="'+arg.event.extendedProps.datum_str+'"></i>' +
-                '</div>';
-
-             //console.log(arg);
-          },
-
--->

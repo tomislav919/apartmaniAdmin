@@ -18,26 +18,6 @@
   <!-- Content Wrapper. Contains page content -->
 
   <div class="content-wrapper">
-    <!-- --------------------- TEST AREA START -------------------------- -->
-
-    <!-- Modal -->
-    <div id="calendarModal" class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
-            <h4 id="modalTitle" class="modal-title"></h4>
-          </div>
-          <div id="modalBody" class="modal-body"> </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- --------------------- TEST AREA END -------------------------- -->
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -48,10 +28,8 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
     <!-- Main content -->
     <section class="content">
-
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
@@ -156,6 +134,7 @@
   </div>
   <!-- /.content-wrapper -->
   <?php include(PATH . '/include/footer.php'); ?>
+  <?php include(PATH . '/include/modal.php'); ?>
   <!-- ./wrapper -->
   <?php include(PATH . '/include/scripts.php'); ?>
 </body>

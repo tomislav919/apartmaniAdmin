@@ -12,7 +12,7 @@ class Event extends Eloquent
     $i = 0;
     foreach($events as $event)
     {
-      $events[$i]['extendedProp']['idFromDB'] = $event['id'];
+      $events[$i]['idFromDB'] = $event['id'];
       $i++;
     }
     return json_encode($events);
