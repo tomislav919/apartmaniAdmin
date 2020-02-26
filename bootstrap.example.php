@@ -24,7 +24,7 @@ define('ROOTPATH', 'http://localhost/apartmaniAdmin');
 
 1. Create a MySQL migrations and use the calendar.sql file to import the tables. Or you can use the migrations in the migrations folder to create the tables manualy.
 2. Create bootstrap.php file in the root of your project (example: apartmaniAdmin/bootstrap.php)
-3. Fill in the database name, username and password in bootstrap.php
+3. Copy everything from bootstrap.example.php to bootstrap.php and fill in the database name, username and password
 4. Define your ROOTPATH in bootstrap.php -> define('ROOTPATH', '');
 5. Open localhost/yourProject
 6. Login info user: Administrator ; pass: 12345678
