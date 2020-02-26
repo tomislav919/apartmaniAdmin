@@ -15,8 +15,13 @@
 <script src="<?=ROOTPATH?>/plugins/fullcalendar-timegrid/main.min.js"></script>
 <script src="<?=ROOTPATH?>/plugins/fullcalendar-interaction/main.min.js"></script>
 <script src="<?=ROOTPATH?>/plugins/fullcalendar-bootstrap/main.min.js"></script>
-<!-- Page specific script -->
+<!-- Custom scripts -->
+<script src="<?=ROOTPATH?>/js/addDays.js"></script>
+<script src="<?=ROOTPATH?>/js/subtractDays.js"></script>
 
+
+
+<!-- Page specific script -->
 
 <!-- ------ NAVIGATION  SCRIPT --------- -->
 <script>
@@ -25,23 +30,6 @@
   console.log(activeApp);
   $('#' + activeApp).addClass('active');
 </script>
-
-
-<!-- ----- CUSTOM ADD DAY SCRIPT ----- -->
-<script>
-  Date.prototype.addDays = function(days) {
-    var date = new Date(this.valueOf());
-    date.setDate(date.getDate() + days);
-    return date;
-  };
-
-  Date.prototype.subtractDays = function(days) {
-    var date = new Date(this.valueOf());
-    date.setDate(date.getDate() - days);
-    return date;
-  };
-</script>
-
 
 
 <!-- ------ CALENDAR SCRIPT --------- -->
@@ -405,7 +393,11 @@
             error: function (jqXHR, textStatus, errorThrown) {
               console.log(textStatus);
               console.log(errorThrown);
-              console.log('Došlo je do errora u ajax-u');
+              console.log('DošloŽ je do errora u ajax-u');
+
+
+              0
+              
               alert('Došlo je do greške spremanja rezervacije, molimo Vas da pokušate ponovno');
               location.reload(true); //refresh stranice tako da user primjeti da mu fali event, da nebi doslo do overbookinga
             }
