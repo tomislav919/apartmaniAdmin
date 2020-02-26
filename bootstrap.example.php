@@ -26,6 +26,7 @@ define('ROOTPATH', 'http://localhost/apartmaniAdmin');
 2. Create bootstrap.php file in the root of your project (example: apartmaniAdmin/bootstrap.php)
 3. Copy everything from bootstrap.example.php to bootstrap.php and fill in the database name, username and password
 4. Define your ROOTPATH in bootstrap.php -> define('ROOTPATH', '');
-5. Open localhost/yourProject
-6. Login info user: Administrator ; pass: 12345678
+5. Composer update/composer install
+6. Open localhost/yourProject
+7. Login info user: Administrator ; pass: 12345678
 */
