@@ -133,6 +133,7 @@
   </div>
   <!-- /.content-wrapper -->
   <?php include(PATH . '/include/footer.php'); ?>
+  <?php include(PATH . '/include/modal.php'); ?>
   <!-- ./wrapper -->
   <?php include(PATH . '/include/scripts.php'); ?>
 </body>

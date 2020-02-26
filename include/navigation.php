@@ -82,6 +82,15 @@
             </p>
           </a>
         </li>
+        <li class="nav-item d-sm-none">
+          <a href="<?=ROOTPATH?>/login.php" class="nav-link">
+            <i class="nav-icon far fa-user"></i>
+            <p>
+              Login
+              <span class="badge badge-info right"></span>
+            </p>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
